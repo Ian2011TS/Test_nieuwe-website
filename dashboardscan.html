@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HZJHY38M1R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HZJHY38M1R');
+</script>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' 'unsafe-eval'
+    https://unpkg.com
+    https://cdnjs.cloudflare.com
+    https://cdn.jsdelivr.net
+    https://app.cal.eu https://cal.eu https://*.cal.eu
+    https://app.cal.com https://*.cal.com;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com
+    https://app.cal.eu https://*.cal.eu;
+  font-src 'self' https://fonts.gstatic.com
+    https://app.cal.eu https://*.cal.eu;
+  img-src 'self' data: blob: https://*.cal.eu https://*.cal.com;
+  connect-src 'self' https://*.supabase.co https://supabase.co
+    https://app.cal.eu https://cal.eu https://*.cal.eu
+    https://app.cal.com https://*.cal.com;
+  frame-src https://app.cal.eu https://cal.eu https://*.cal.eu
+    https://app.cal.com https://*.cal.com;
+  object-src 'none';
+  base-uri 'self';
+">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Dashboard Beoordeling — Strategieboost</title>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha384-JcnsjUPPylna1s1fvi1u12X5qjY5OL56iySh75FdtrwhO/SWXgMjoVqcKyIIWOLk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+(function (C, A, L) {
+  let p = function (a, ar) { a.q.push(ar); };
+  let d = C.document;
+  C.Cal = C.Cal || function () {
+    let cal = C.Cal; let ar = arguments;
+    if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
+    if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar); return; }
+    p(cal, ar);
+  };
+})(window, "https://app.cal.eu/embed/embed.js", "init");
+Cal("init", "kennismakingsgesprek", { origin: "https://cal.eu" });
+Cal.ns["kennismakingsgesprek"]("ui", {
+  styles: { branding: { brandColor: "#3D2882" } },
+  hideEventTypeDetails: false,
+  layout: "month_view"
+});
+</script>
+
+<style>
+@font-face {
+  font-family: 'Bebas Neue Rounded';
+  src: url('BebasNeueRounded-Regular.woff2') format('woff2'),
+       url('BebasNeueRounded-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+:root {
+  --sb-purple:   #3D2882;
+  --sb-violet:   #6B3194;
+  --sb-red:      #C52339;
+  --sb-orange:   #F7941D;
+  --sb-amber:    #F5C23A;
+  --sb-gradient: linear-gradient(135deg, #3D2882 0%, #6B3194 30%, #C52339 65%, #F7941D 100%);
+  --sb-gradient-h: linear-gradient(90deg, #3D2882 0%, #6B3194 30%, #C52339 65%, #F7941D 100%);
+  --sb-gradient-warm: linear-gradient(90deg, #F5C23A 0%, #F7941D 100%);
+  --sb-black:    #1A1A1A;
+  --sb-mid:      #6B6B6B;
+  --sb-light:    #C8C8C8;
+  --sb-off-white:#F4F3F0;
+  --sb-white:    #FFFFFF;
+  --font-display:'Bebas Neue Rounded','Bebas Neue',Impact,'Arial Narrow',sans-serif;
+  --font-body:   -apple-system,'Segoe UI',system-ui,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+  --shadow-md:   0 4px 12px rgba(61,40,130,0.12);
+  --shadow-lg:   0 10px 30px rgba(61,40,130,0.18);
+  --radius-md:   8px;
+  --radius-lg:   16px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--sb-off-white);
+  color: var(--sb-black);
+  min-height: 100vh;
+}
+
+/* Upload drop zone */
+.drop-zone {
+  border: 2px dashed #C8C0E8;
+  border-radius: var(--radius-lg);
+  padding: 48px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: white;
+}
+.drop-zone:hover, .drop-zone.drag-over {
+  border-color: var(--sb-purple);
+  background: #F4F3FC;
+}
+.drop-zone input[type=file] { display: none; }
+
+/* Progress steps */
+.step-bar { display: flex; align-items: center; gap: 0; margin-bottom: 32px; }
+.step-item { display: flex; align-items: center; gap: 8px; flex: 1; }
+.step-dot {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-body); font-size: 12px; font-weight: 700;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+.step-dot.done   { background: var(--sb-purple); color: white; }
+.step-dot.active { background: var(--sb-gradient); color: white; box-shadow: 0 0 0 4px rgba(61,40,130,0.15); }
+.step-dot.todo   { background: #E8E5F0; color: var(--sb-mid); }
+.step-line { flex: 1; height: 2px; background: #E8E5F0; margin: 0 4px; }
+.step-line.done  { background: var(--sb-purple); }
+.step-label { font-size: 10px; color: var(--sb-mid); white-space: nowrap; display: none; }
+@media (min-width: 600px) { .step-label { display: block; } }
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 28px;
+  margin-bottom: 16px;
+}
+
+/* Score bar */
+.score-bar-bg {
+  height: 8px; background: #EEE; border-radius: 4px; overflow: hidden; margin: 6px 0 2px;
+}
+.score-bar-fill {
+  height: 100%; border-radius: 4px;
+  transition: width 1s cubic-bezier(.4,0,.2,1);
+}
+
+/* Dimension block */
+.dim-block {
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.dim-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; cursor: pointer; user-select: none;
+}
+.dim-body { padding: 0 16px 14px; }
+
+/* Choice buttons */
+.choice-btn {
+  display: inline-block; padding: 8px 14px;
+  border: 1.5px solid #D0CBE8; border-radius: 6px;
+  background: white; color: var(--sb-black);
+  font-family: var(--font-body); font-size: 13px;
+  cursor: pointer; transition: all 0.15s ease;
+  margin: 4px;
+}
+.choice-btn:hover  { border-color: var(--sb-purple); background: #F4F3FC; }
+.choice-btn.active { border-color: var(--sb-purple); background: var(--sb-purple); color: white; }
+
+/* Spinner */
+.spinner {
+  width: 40px; height: 40px;
+  border: 3px solid #E8E5F0;
+  border-top-color: var(--sb-purple);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* CTA block */
+.cta-block {
+  background: var(--sb-gradient);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  color: white;
+  margin-top: 24px;
+}
+
+/* Form input */
+.sb-input {
+  width: 100%; padding: 11px 14px;
+  border: 1.5px solid #D0CBE8; border-radius: var(--radius-md);
+  font-family: var(--font-body); font-size: 14px;
+  background: white; color: var(--sb-black);
+  transition: border-color 0.15s;
+  outline: none;
+}
+.sb-input:focus { border-color: var(--sb-purple); box-shadow: 0 0 0 3px rgba(61,40,130,0.1); }
+
+/* Btn */
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 13px 28px; border-radius: var(--radius-md);
+  background: var(--sb-gradient-warm);
+  color: white; font-family: var(--font-display); font-size: 18px;
+  letter-spacing: 0.06em; border: none; cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+}
+.btn-primary:hover  { opacity: 0.9; transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(0); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 11px 22px; border-radius: var(--radius-md);
+  background: white; color: var(--sb-purple);
+  font-family: var(--font-body); font-size: 14px; font-weight: 600;
+  border: 2px solid var(--sb-purple); cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-secondary:hover { background: var(--sb-purple); color: white; }
+.btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-secondary:disabled:hover { background: white; color: var(--sb-purple); }
+
+/* Radar canvas */
+#radarCanvas { max-width: 420px; width: 100%; margin: 0 auto; display: block; }
+
+/* Top 5 */
+.top5-item {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 14px 16px; border-radius: var(--radius-md);
+  margin-bottom: 8px;
+}
+.top5-item:nth-child(odd) { background: #F4F3FC; }
+.top5-num {
+  font-family: var(--font-display); font-size: 28px;
+  color: var(--sb-purple); line-height: 1; flex-shrink: 0; width: 28px;
+}
+
+/* Anim */
+.fade-in { animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* Nav */
+.topnav {
+  background: white; border-bottom: 1px solid #EEE;
+  padding: 0 24px; height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+}
+.topnav-logo {
+  font-family: var(--font-display); font-size: 22px;
+  color: var(--sb-purple); text-decoration: none; letter-spacing: 0.04em;
+}
+.topnav-back {
+  font-size: 13px; color: var(--sb-mid); text-decoration: none;
+  display: flex; align-items: center; gap: 4px;
+}
+.topnav-back:hover { color: var(--sb-purple); }
+
+/* Thumbnail */
+.thumb-wrap {
+  position: relative; border-radius: var(--radius-md); overflow: hidden;
+  border: 1px solid #E0DCF0; background: #F9F8FC;
+  max-height: 220px; display: flex; align-items: center; justify-content: center;
+}
+.thumb-wrap img { max-width: 100%; max-height: 220px; object-fit: contain; }
+.thumb-remove {
+  position: absolute; top: 8px; right: 8px;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(0,0,0,0.55); color: white; border: none;
+  cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center;
+}
+
+/* Observatie list */
+.obs-list { list-style: none; padding: 0; }
+.obs-list li {
+  padding: 6px 0 6px 18px; position: relative;
+  font-size: 13px; line-height: 1.55; color: var(--sb-black);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.obs-list li:last-child { border-bottom: none; }
+.obs-list li::before {
+  content: '•'; position: absolute; left: 4px;
+  color: var(--sb-purple); font-weight: 700;
+}
+
+/* Question card */
+.q-card {
+  background: white; border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md); padding: 24px; margin-bottom: 16px;
+}
+.q-card-num {
+  display: inline-block; background: var(--sb-gradient);
+  color: white; font-family: var(--font-display); font-size: 13px;
+  padding: 2px 10px; border-radius: 20px; margin-bottom: 10px;
+}
+
+/* ── Tijdsbalk ─────────────────────────────────────────────── */
+.progress-bar-wrap {
+  width: 100%; background: #E8E5F0; border-radius: 99px;
+  height: 6px; overflow: hidden; margin: 14px 0 6px;
+}
+.progress-bar-fill {
+  height: 100%; border-radius: 99px;
+  background: var(--sb-gradient-h);
+  transition: width 0.6s cubic-bezier(.4,0,.2,1);
+}
+.progress-label {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 11px; color: var(--sb-mid);
+}
+.progress-label strong { color: var(--sb-purple); }
+
+/* ── Hamburgermenu ─────────────────────────────────────────── */
+.ham-btn {
+  display: none;
+  background: none; border: none; cursor: pointer;
+  padding: 6px; border-radius: 6px;
+  flex-direction: column; gap: 5px; align-items: center; justify-content: center;
+}
+.ham-btn span {
+  display: block; width: 22px; height: 2px;
+  background: var(--sb-purple); border-radius: 2px;
+  transition: all 0.25s ease;
+}
+.ham-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.ham-btn.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.ham-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed; top: 56px; left: 0; right: 0;
+  background: white; border-bottom: 1px solid #EEE;
+  box-shadow: 0 8px 24px rgba(61,40,130,0.12);
+  z-index: 99; padding: 8px 0;
+  animation: slideDown 0.2s ease;
+}
+.mobile-menu.open { display: block; }
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: none; }
+}
+.mobile-menu a {
+  display: block; padding: 14px 24px;
+  font-family: var(--font-body); font-size: 15px; font-weight: 600;
+  color: var(--sb-black); text-decoration: none;
+  border-bottom: 1px solid #F4F3F0;
+  transition: background 0.1s;
+}
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu a:hover { background: #F4F3FC; color: var(--sb-purple); }
+.mobile-menu a.nav-cta-mobile {
+  color: var(--sb-purple); font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .ham-btn { display: flex; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-logo">STRATEGIEBOOST</a>
+  <a href="index.html" class="topnav-back">← Terug naar website</a>
+</nav>
+
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useEffect, useRef, useCallback } = React;
+
+// ── Tijdsbalk component ──────────────────────────────────────────────────────
+function ProgressBar({ pct, label, timeLeft }) {
+  return (
+    <div style={{ marginBottom: 4 }}>
+      <div className="progress-label">
+        <strong>{label}</strong>
+        {timeLeft && <span>Nog ca. {timeLeft}</span>}
+      </div>
+      <div className="progress-bar-wrap">
+        <div className="progress-bar-fill" style={{ width: pct + '%' }} />
+      </div>
+    </div>
+  );
+}
+
+// ── Analyse tijdsbalk met animatie ────────────────────────────────────────────
+function AnalyseProgress({ status }) {
+  const [pct, setPct] = useState(5);
+  const [timeLeft, setTimeLeft] = useState('30 seconden');
+
+  // Status bepaalt het target percentage
+  const targetMap = {
+    'Dashboard wordt ingelezen...':                          18,
+    'Dashboard wordt geanalyseerd op 6 dimensies...':        55,
+    'Scores worden berekend...':                             88,
+  };
+
+  const timeMap = {
+    'Dashboard wordt ingelezen...':                          '25 seconden',
+    'Dashboard wordt geanalyseerd op 6 dimensies...':        '15 seconden',
+    'Scores worden berekend...':                             '5 seconden',
+  };
+
+  useEffect(() => {
+    const target = targetMap[status] || 5;
+    setTimeLeft(timeMap[status] || '30 seconden');
+
+    // Kruip langzaam naar het target toe
+    const interval = setInterval(() => {
+      setPct(prev => {
+        if (prev >= target) { clearInterval(interval); return prev; }
+        const step = Math.max(0.4, (target - prev) * 0.06);
+        return Math.min(target, prev + step);
+      });
+    }, 120);
+    return () => clearInterval(interval);
+  }, [status]);
+
+  // Label op basis van voortgang
+  const stepLabel = pct < 20
+    ? 'Dashboard inlezen...'
+    : pct < 65
+    ? 'Analyseren op 6 dimensies...'
+    : 'Scores en rapport opstellen...';
+
+  return (
+    <div style={{ maxWidth: 360, margin: '0 auto', padding: '0 8px' }}>
+      <ProgressBar pct={pct} label={stepLabel} timeLeft={timeLeft} />
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 10, gap: 4 }}>
+        {['Inlezen', 'Analyseren', 'Rapport'].map((s, i) => {
+          const done = (i === 0 && pct >= 18) || (i === 1 && pct >= 55) || (i === 2 && pct >= 88);
+          const active = (i === 0 && pct < 18) || (i === 1 && pct >= 18 && pct < 55) || (i === 2 && pct >= 55);
+          return (
+            <div key={i} style={{ flex: 1, textAlign: 'center' }}>
+              <div style={{
+                width: 28, height: 28, borderRadius: '50%', margin: '0 auto 4px',
+                background: done ? '#2E7D32' : active ? 'var(--sb-purple)' : '#E8E5F0',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: 11, color: done || active ? 'white' : '#aaa',
+                fontWeight: 700, transition: 'all 0.4s ease',
+                boxShadow: active ? '0 0 0 4px rgba(61,40,130,0.15)' : 'none',
+              }}>
+                {done ? '✓' : i + 1}
+              </div>
+              <span style={{ fontSize: 10, color: done ? '#2E7D32' : active ? 'var(--sb-purple)' : '#bbb', fontWeight: active || done ? 700 : 400 }}>
+                {s}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ── Rapport tijdsbalk ─────────────────────────────────────────────────────────
+function RapportProgress() {
+  const [pct, setPct] = useState(5);
+  const [timeLeft, setTimeLeft] = useState('25 seconden');
+
+  useEffect(() => {
+    // Simuleer voortgang: snel naar 30, dan langzaam naar 85, final sprint bij done
+    const phases = [
+      { target: 28,  speed: 0.10, delay: 0    },
+      { target: 60,  speed: 0.05, delay: 3000 },
+      { target: 85,  speed: 0.03, delay: 8000 },
+    ];
+    const timers = [];
+    phases.forEach(({ target, speed, delay }) => {
+      timers.push(setTimeout(() => {
+        const iv = setInterval(() => {
+          setPct(prev => {
+            if (prev >= target) { clearInterval(iv); return prev; }
+            return Math.min(target, prev + Math.max(0.3, (target - prev) * speed));
+          });
+        }, 150);
+        timers.push(iv);
+      }, delay));
+    });
+
+    // Tijdsindicator
+    const timeSteps = [
+      { at: 0,    label: '25 seconden' },
+      { at: 3000, label: '18 seconden' },
+      { at: 8000, label: '10 seconden' },
+      { at: 14000,label: '5 seconden'  },
+    ];
+    timeSteps.forEach(({ at, label }) => {
+      timers.push(setTimeout(() => setTimeLeft(label), at));
+    });
+
+    return () => timers.forEach(t => { clearTimeout(t); clearInterval(t); });
+  }, []);
+
+  const stepLabel = pct < 30
+    ? 'Antwoorden verwerken...'
+    : pct < 65
+    ? 'Definitieve scores berekenen...'
+    : 'Rapport en verbeterpunten opstellen...';
+
+  return (
+    <div style={{ maxWidth: 360, margin: '0 auto', padding: '0 8px' }}>
+      <ProgressBar pct={pct} label={stepLabel} timeLeft={timeLeft} />
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 10, gap: 4 }}>
+        {['Verwerken', 'Scores', 'Rapport'].map((s, i) => {
+          const done = (i === 0 && pct >= 28) || (i === 1 && pct >= 60) || (i === 2 && pct >= 85);
+          const active = (i === 0 && pct < 28) || (i === 1 && pct >= 28 && pct < 60) || (i === 2 && pct >= 60);
+          return (
+            <div key={i} style={{ flex: 1, textAlign: 'center' }}>
+              <div style={{
+                width: 28, height: 28, borderRadius: '50%', margin: '0 auto 4px',
+                background: done ? '#2E7D32' : active ? 'var(--sb-purple)' : '#E8E5F0',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: 11, color: done || active ? 'white' : '#aaa',
+                fontWeight: 700, transition: 'all 0.4s ease',
+                boxShadow: active ? '0 0 0 4px rgba(61,40,130,0.15)' : 'none',
+              }}>
+                {done ? '✓' : i + 1}
+              </div>
+              <span style={{ fontSize: 10, color: done ? '#2E7D32' : active ? 'var(--sb-purple)' : '#bbb', fontWeight: active || done ? 700 : 400 }}>
+                {s}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ── Config ─────────────────────────────────────────────────────────────────
+const SUPABASE_URL  = 'https://nedxetebhieaqpvyrxcu.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5lZHhldGViaGllYXFwdnlyeGN1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4MjM0MDgsImV4cCI6MjA5NDM5OTQwOH0.HVTsyqgkDyX1xKJJ01S_45DiSdK6ElRm0BZfpcQcznY';
+
+const DIMS = [
+  { id: 'strategisch',   label: 'Strategische focus',   shortLabel: 'Strategie',      color: '#3D2882' },
+  { id: 'besliskracht',  label: 'Besliskracht',         shortLabel: 'Besliskracht',   color: '#6B3194' },
+  { id: 'datakwaliteit', label: 'Datakwaliteit',        shortLabel: 'Datakwaliteit',  color: '#8B2A7A' },
+  { id: 'actualiteit',   label: 'Actualiteit',          shortLabel: 'Actualiteit',    color: '#C52339' },
+  { id: 'gebruiksgemak', label: 'Gebruiksgemak & adoptie', shortLabel: 'Gebruiksgemak', color: '#E05C1A' },
+  { id: 'lerend',        label: 'Lerend vermogen',      shortLabel: 'Lerend',         color: '#F7941D' },
+];
+
+function getLabelInfo(pct) {
+  if (pct >= 80) return { label: 'Sterk',            color: '#2E7D32' };
+  if (pct >= 60) return { label: 'Goed',             color: '#558B2F' };
+  if (pct >= 40) return { label: 'Aandacht gewenst', color: '#F7941D' };
+  if (pct >= 20) return { label: 'Zwak',             color: '#C52339' };
+  return           { label: 'Kritiek',               color: '#8B0000' };
+}
+
+// ── Supabase opslaan ────────────────────────────────────────────────────────
+async function saveToSupabase(contact, strategischDoel, scores, vragen, antwoorden, pdfBase64) {
+  try {
+    let pdfUrl = null;
+    if (pdfBase64) {
+      try {
+        const binary = atob(pdfBase64);
+        const bytes  = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+        const blob   = new Blob([bytes], { type: 'application/pdf' });
+        const ts     = Date.now();
+        const safe   = (contact.bedrijf || 'scan').replace(/[^a-z0-9]/gi, '_').slice(0, 40);
+        const path   = `dashboard_${safe}_${ts}.pdf`;
+        const upRes  = await fetch(`${SUPABASE_URL}/storage/v1/object/rapporten/${path}`, {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_ANON, 'Authorization': `Bearer ${SUPABASE_ANON}`,
+            'Content-Type': 'application/pdf', 'x-upsert': 'false',
+          },
+          body: blob,
+        });
+        if (upRes.ok) pdfUrl = `${SUPABASE_URL}/storage/v1/object/public/rapporten/${path}`;
+        else console.error('[Storage]', await upRes.text());
+      } catch(e) { console.error('[PDF upload]', e.message); }
+    }
+
+    const scoresObj = {};
+    scores.forEach(s => { scoresObj[s.id] = s.pct; });
+
+    const payload = {
+      bedrijf_naam:    contact.bedrijf  || null,
+      email:           contact.email    || null,
+      naam:            contact.naam     || null,
+      scan_type:       'dashboard',
+      strategisch_doel: strategischDoel || null,
+      scores:          scoresObj,
+      verdiepende_antwoorden: antwoorden || null,
+      rapport_pdf:     pdfUrl,
+    };
+
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/dashboard_scans`, {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_ANON, 'Authorization': `Bearer ${SUPABASE_ANON}`,
+        'Content-Type': 'application/json', 'Prefer': 'return=minimal',
+      },
+      body: JSON.stringify(payload),
+    });
+    if (res.ok) console.log('[Supabase] ✅ Dashboard scan opgeslagen');
+    else console.error('[Supabase]', res.status, await res.text());
+  } catch(e) { console.error('[Supabase]', e.message); }
+}
+
+// ── PDF genereren ───────────────────────────────────────────────────────────
+function buildPdf(contact, strategischDoel, scores, top5, vragen, antwoorden) {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+  const PW = 210; const PH = 297; const ML = 14; const CW = PW - ML * 2;
+  const dateStr = new Date().toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
+  const hex = h => [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)];
+  const PURPLE = hex('3D2882'); const ORANGE = hex('F7941D');
+  const GREEN  = hex('2E7D32'); const MID    = hex('6B6B6B');
+  const OFF    = hex('F4F3F0');
+
+  const setF = c => doc.setFillColor(c[0],c[1],c[2]);
+  const setT = c => doc.setTextColor(c[0],c[1],c[2]);
+  const labelC = pct => pct>=80 ? GREEN : pct>=60 ? hex('558B2F') : pct>=40 ? ORANGE : hex('C52339');
+  const labelT = pct => pct>=80 ? 'STERK' : pct>=60 ? 'GOED' : pct>=40 ? 'AANDACHT GEWENST' : 'ZWAK';
+  const FSML = 7.5; const FSN = 8;
+  const LINE = 4.6;
+  let y = 0;
+
+  const checkPage = n => { if (y + n > PH - 12) { doc.addPage(); y = 14; } };
+
+  // Header
+  setF(PURPLE); doc.rect(0, 0, PW, 22, 'F');
+  doc.setFont('helvetica','bold'); doc.setFontSize(14); setT([255,255,255]);
+  doc.text('DASHBOARD BEOORDELING  ·  STRATEGIEBOOST', ML, 9);
+  doc.setFont('helvetica','normal'); doc.setFontSize(8); setT([200,200,220]);
+  doc.text(`${contact.bedrijf || ''}  ·  ${dateStr}`, PW - ML, 9, { align:'right' });
+  // gradient strip
+  const gColors = ['3D2882','6B3194','C52339','F7941D'];
+  const sw = CW / (gColors.length - 1);
+  gColors.forEach((c, i) => { setF(hex(c)); doc.rect(ML + i*sw, 19, sw+0.5, 3, 'F'); });
+  y = 27;
+
+  // Contact + doel
+  doc.setFont('helvetica','normal'); doc.setFontSize(FSML); setT(MID);
+  doc.text([contact.naam, contact.bedrijf, contact.email].filter(Boolean).join('  ·  '), ML, y); y += 5;
+  if (strategischDoel) {
+    const dLines = doc.splitTextToSize(`Strategisch doel: ${strategischDoel}`, CW - 4);
+    doc.setFont('helvetica','italic'); setT([80,80,80]);
+    doc.text(dLines, ML, y); y += dLines.length * LINE + 4;
+  }
+
+  // Scores tabel
+  scores.forEach(s => {
+    checkPage(12);
+    const c = hex(DIMS.find(d=>d.id===s.id)?.color?.slice(1) || '3D2882');
+    setF(c); doc.rect(ML, y, CW, 7, 'F');
+    doc.setFont('helvetica','bold'); doc.setFontSize(FSN); setT([255,255,255]);
+    doc.text(DIMS.find(d=>d.id===s.id)?.label?.toUpperCase() || s.id, ML+2, y+4.8);
+    doc.text(`${s.pct}%  ${labelT(s.pct)}`, ML+CW-2, y+4.8, { align:'right' });
+    y += 10;
+
+    // Observaties
+    if (s.observaties?.length) {
+      s.observaties.forEach(obs => {
+        checkPage(LINE*2);
+        const lines = doc.splitTextToSize('• ' + obs, CW - 6);
+        doc.setFont('helvetica','normal'); doc.setFontSize(FSML); setT([30,30,30]);
+        doc.text(lines, ML+2, y); y += lines.length * LINE + 1.5;
+      });
+    }
+
+    // Verbeterpunten
+    if (s.verbeterpunten?.length) {
+      checkPage(7);
+      y += 1;
+      setF(OFF); doc.rect(ML, y, CW, 5, 'F');
+      doc.setFont('helvetica','bold'); doc.setFontSize(FSML); setT(MID);
+      doc.text('VERBETERPUNTEN', ML+2, y+3.5); y += 8;
+      s.verbeterpunten.forEach(tip => {
+        const tLines = doc.splitTextToSize('• ' + tip, CW - 6);
+        checkPage(tLines.length * LINE);
+        doc.setFont('helvetica','normal'); doc.setFontSize(FSML); setT([30,30,30]);
+        doc.text(tLines, ML+2, y); y += tLines.length * LINE + 1.5;
+      });
+    }
+    y += 5;
+  });
+
+  // Top 5
+  checkPage(22);
+  setF(PURPLE); doc.rect(ML, y, CW, 8, 'F');
+  doc.setFont('helvetica','bold'); doc.setFontSize(9); setT([255,255,255]);
+  doc.text('TOP 5 MEEST URGENTE VERBETERPUNTEN', ML+2, y+5.4); y += 11;
+  top5.forEach((item, i) => {
+    checkPage(LINE*3);
+    const lines = doc.splitTextToSize(`${i+1}.  ${item.tip}`, CW-20);
+    setF(i%2===0?[245,243,255]:[255,255,255]); doc.rect(ML, y-1.5, CW, lines.length*LINE+3.5, 'F');
+    doc.setFont('helvetica','bold'); doc.setFontSize(FSML); setT(PURPLE);
+    doc.text(`${i+1}`, ML+2, y+LINE-1);
+    doc.setFont('helvetica','normal'); setT([30,30,30]);
+    doc.text(lines, ML+7, y+LINE-1);
+    doc.setFont('helvetica','italic'); doc.setFontSize(FSML-0.5); setT(MID);
+    doc.text(item.dim, ML+CW, y+lines.length*LINE+0.5, { align:'right' });
+    y += lines.length*LINE+5.5;
+  });
+
+  // Footer
+  const pages = doc.getNumberOfPages();
+  for (let i=1; i<=pages; i++) {
+    doc.setPage(i);
+    setF(PURPLE); doc.rect(0, PH-8, PW, 8, 'F');
+    doc.setFont('helvetica','normal'); doc.setFontSize(6.5); setT([180,180,210]);
+    doc.text('Strategieboost  ·  strategieboost.nl', ML, PH-3.5);
+    doc.text(`${i} / ${pages}`, PW-ML, PH-3.5, { align:'right' });
+  }
+
+  return doc.output('datauristring').split(',')[1];
+}
+
+// ── Radar Chart ─────────────────────────────────────────────────────────────
+function RadarChart({ scores }) {
+  const ref = useRef(null);
+  const chartRef = useRef(null);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    if (chartRef.current) { chartRef.current.destroy(); }
+    chartRef.current = new Chart(ref.current, {
+      type: 'radar',
+      data: {
+        labels: scores.map(s => DIMS.find(d=>d.id===s.id)?.shortLabel || s.id),
+        datasets: [{
+          data: scores.map(s => s.pct),
+          backgroundColor: 'rgba(61,40,130,0.12)',
+          borderColor: '#3D2882',
+          borderWidth: 2,
+          pointBackgroundColor: '#3D2882',
+          pointRadius: 4,
+        }],
+      },
+      options: {
+        responsive: true,
+        layout: { padding: { top: 16, bottom: 16, left: 24, right: 24 } },
+        scales: { r: {
+          min: 0, max: 100,
+          ticks: { stepSize: 20, font: { size: 9 }, color: '#888', backdropColor: 'transparent' },
+          pointLabels: {
+            font: { size: 11, family: "'Segoe UI', sans-serif", weight: '600' },
+            color: '#222',
+            padding: 8,
+          },
+          grid: { color: '#E8E5F0' },
+          angleLines: { color: '#E8E5F0' },
+        }},
+        plugins: { legend: { display: false } },
+      },
+    });
+    return () => chartRef.current?.destroy();
+  }, [scores]);
+
+  return <canvas ref={ref} id="radarCanvas" />;
+}
+
+// ── Score bar ────────────────────────────────────────────────────────────────
+function ScoreBar({ pct, color }) {
+  return (
+    <div className="score-bar-bg">
+      <div className="score-bar-fill" style={{ width: pct + '%', background: color }} />
+    </div>
+  );
+}
+
+// ── Stap indicator ───────────────────────────────────────────────────────────
+const STAPPEN = ['Upload', 'Eerste analyse', 'Gegevens', 'Verdieping', 'Rapport'];
+
+function StepBar({ active }) {
+  return (
+    <div className="step-bar">
+      {STAPPEN.map((s, i) => (
+        <React.Fragment key={i}>
+          <div className="step-item">
+            <div className={`step-dot ${i < active ? 'done' : i === active ? 'active' : 'todo'}`}>
+              {i < active ? '✓' : i + 1}
+            </div>
+            <span className="step-label" style={{ color: i === active ? '#3D2882' : '#999', fontWeight: i===active?700:400 }}>{s}</span>
+          </div>
+          {i < STAPPEN.length - 1 && <div className={`step-line ${i < active ? 'done' : ''}`} />}
+        </React.Fragment>
+      ))}
+    </div>
+  );
+}
+
+// ── Verdiepende vraag ────────────────────────────────────────────────────────
+function VraagCard({ vraag, index, onChange }) {
+  const [keuze, setKeuze] = useState(null);
+  const [open, setOpen]   = useState('');
+
+  const handleKeuze = (opt) => {
+    const isAnders = opt === 'Anders';
+    setKeuze(opt);
+    if (!isAnders) {
+      setOpen('');
+      onChange({ keuze: opt, toelichting: null });
+    } else {
+      onChange({ keuze: opt, toelichting: open });
+    }
+  };
+
+  const handleOpen = (v) => {
+    setOpen(v);
+    if (keuze === 'Anders') onChange({ keuze: 'Anders', toelichting: v });
+  };
+
+  return (
+    <div className="q-card fade-in">
+      <span className="q-card-num">Vraag {index + 1}</span>
+      <p style={{ fontSize: 14, fontWeight: 600, lineHeight: 1.55, marginBottom: 14, color: '#1A1A1A' }}>
+        {vraag.vraag}
+      </p>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 0 }}>
+        {vraag.opties.map(opt => (
+          <button key={opt} className={`choice-btn ${keuze === opt ? 'active' : ''}`}
+            onClick={() => handleKeuze(opt)}>{opt}</button>
+        ))}
+      </div>
+      {keuze === 'Anders' && (
+        <textarea
+          className="sb-input" rows={2}
+          style={{ marginTop: 10, resize: 'vertical', fontSize: 13 }}
+          placeholder="Licht toe..."
+          value={open}
+          onChange={e => handleOpen(e.target.value)}
+        />
+      )}
+      {keuze && keuze !== 'Anders' && vraag.toelichting_prompt && (
+        <textarea
+          className="sb-input" rows={2}
+          style={{ marginTop: 10, resize: 'vertical', fontSize: 13, borderColor: '#C8C0E8' }}
+          placeholder={vraag.toelichting_prompt}
+          value={open}
+          onChange={e => { setOpen(e.target.value); onChange({ keuze, toelichting: e.target.value }); }}
+        />
+      )}
+    </div>
+  );
+}
+
+// ── Hoofd app ─────────────────────────────────────────────────────────────────
+function App() {
+  const [stap, setStap]                   = useState(0);
+  const [file, setFile]                   = useState(null);
+  const [fileDataUrl, setFileDataUrl]     = useState(null);
+  const [fileBase64, setFileBase64]       = useState(null);
+  const [fileMime, setFileMime]           = useState(null);
+  const [dragOver, setDragOver]           = useState(false);
+  const [strategischDoel, setStrategischDoel] = useState('');
+  const [loadingAnalyse, setLoadingAnalyse]   = useState(false);
+  const [analyseStatus, setAnalyseStatus]     = useState('');
+  const [analyseResultaat, setAnalyseResultaat] = useState(null); // { scores, samenvatting }
+  const [contact, setContact]             = useState({ naam: '', bedrijf: '', email: '' });
+  const [contactFout, setContactFout]     = useState('');
+  const [vragen, setVragen]               = useState([]);
+  const [loadingVragen, setLoadingVragen] = useState(false);
+  const [antwoorden, setAntwoorden]       = useState({});
+  const [rapport, setRapport]             = useState(null);
+  const [loadingRapport, setLoadingRapport] = useState(false);
+  const [pdfBase64, setPdfBase64]         = useState(null);
+  const [expandedDim, setExpandedDim]     = useState(null);
+  const fileInputRef = useRef(null);
+
+  // ── File verwerken ──────────────────────────────────────────────────────────
+  const verwerkFile = useCallback((f) => {
+    if (!f) return;
+    const allowed = ['image/png','image/jpeg','image/jpg','image/webp','application/pdf'];
+    if (!allowed.includes(f.type)) { alert('Upload een PDF of afbeelding (PNG, JPG, WebP).'); return; }
+    if (f.size > 10 * 1024 * 1024) { alert('Bestand is groter dan 10 MB.'); return; }
+    setFile(f);
+    setFileMime(f.type);
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const result = e.target.result;
+      setFileBase64(result.split(',')[1]);
+      setFileDataUrl(result);
+    };
+    reader.readAsDataURL(f);
+  }, []);
+
+  const onDrop = useCallback((e) => {
+    e.preventDefault(); setDragOver(false);
+    const f = e.dataTransfer.files[0];
+    if (f) verwerkFile(f);
+  }, [verwerkFile]);
+
+  // ── PDF downloaden ───────────────────────────────────────────────────────────
+  const downloadPdf = useCallback(() => {
+    if (!pdfBase64) return;
+    const binary = atob(pdfBase64);
+    const bytes  = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    const blob = new Blob([bytes], { type: 'application/pdf' });
+    const url  = URL.createObjectURL(blob);
+    const safe = (contact.bedrijf || 'dashboard-beoordeling').replace(/[^a-z0-9]/gi, '_');
+    const a = document.createElement('a');
+    a.href = url; a.download = `Dashboard_Beoordeling_${safe}.pdf`;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }, [pdfBase64, contact]);
+
+  // ── Eerste analyse ──────────────────────────────────────────────────────────
+  const startAnalyse = async () => {
+    if (!fileBase64 || !strategischDoel.trim()) return;
+    setLoadingAnalyse(true);
+    setAnalyseStatus('Dashboard wordt ingelezen...');
+    setStap(1);
+
+    const prompt = `Je bent een strategieconsultant bij Strategieboost. Je beoordeelt management dashboards van MKB-bedrijven.
+
+Het strategische doel van dit bedrijf is: "${strategischDoel}"
+
+Analyseer het dashboard op de volgende 6 dimensies en geef per dimensie:
+1. Een score van 0-100
+2. Exact 2 korte, concrete observaties (wat zie je letterlijk in het dashboard)
+3. Exact 2-3 verbeterpunten (concrete acties)
+
+Dimensies:
+- strategisch: Zijn de KPI's direct afgeleid van het opgegeven strategische doel? Ontbreken er dimensies?
+- besliskracht: Zijn verantwoordelijkheden, targets en drempelwaarden zichtbaar? Kan iemand direct beslissen?
+- datakwaliteit: Zijn definities consistent, bronnen transparant, ziet het er onderhouden uit?
+- actualiteit: Zijn datums/periodes zichtbaar? Is de data recent genoeg voor operationele sturing?
+- gebruiksgemak: Overzichtelijkheid, leesbaarheid, informatiedichtheid, geschikt voor niet-analisten?
+- lerend: Bevat het alleen historische data of ook vooruitkijkende metrics? Evolutiesignalen?
+
+Wees eerlijk en constructief. Een hoge score is geloofwaardig. Wees specifiek over wat je ziet.
+
+Schrijfstijl: schrijf natuurlijk, direct Nederlands. Gebruik geen liggende gedachtestrepen (—). Gebruik geen nadrukaccenten op klinkers zoals "én", "vóór" of "wél", schrijf gewoon "en", "voor", "wel". Vermijd Engelse termen waar een goed Nederlands woord bestaat.
+
+Geef je antwoord ALLEEN als JSON, geen andere tekst:
+{
+  "scores": {
+    "strategisch":   { "pct": 0-100, "observaties": ["...", "..."], "verbeterpunten": ["...", "...", "..."] },
+    "besliskracht":  { "pct": 0-100, "observaties": ["...", "..."], "verbeterpunten": ["...", "..."] },
+    "datakwaliteit": { "pct": 0-100, "observaties": ["...", "..."], "verbeterpunten": ["...", "..."] },
+    "actualiteit":   { "pct": 0-100, "observaties": ["...", "..."], "verbeterpunten": ["...", "..."] },
+    "gebruiksgemak": { "pct": 0-100, "observaties": ["...", "..."], "verbeterpunten": ["...", "..."] },
+    "lerend":        { "pct": 0-100, "observaties": ["...", "..."], "verbeterpunten": ["...", "..."] }
+  },
+  "samenvatting": "2-3 zinnen overall indruk van het dashboard"
+}`;
+
+    try {
+      setAnalyseStatus('Dashboard wordt geanalyseerd op 6 dimensies...');
+      const mediaType = fileMime === 'application/pdf' ? 'application/pdf' : fileMime;
+      const contentItem = fileMime === 'application/pdf'
+        ? { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: fileBase64 } }
+        : { type: 'image',    source: { type: 'base64', media_type: mediaType,          data: fileBase64 } };
+
+      const res = await fetch(`${SUPABASE_URL}/functions/v1/claude-proxy`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON,
+          'Authorization': `Bearer ${SUPABASE_ANON}`,
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-5',
+          max_tokens: 4000,
+          messages: [{ role: 'user', content: [contentItem, { type: 'text', text: prompt }] }],
+        }),
+      });
+
+      if (!res.ok) {
+        const errBody = await res.text();
+        console.error('[Analyse] HTTP', res.status, errBody);
+        throw new Error(`API fout ${res.status}: ${errBody.slice(0,200)}`);
+      }
+      setAnalyseStatus('Scores worden berekend...');
+      const data = await res.json();
+      const text = data.content?.find(b => b.type === 'text')?.text || '';
+      // Robuuste JSON extractie: pak alles tussen eerste { en laatste }
+      const jsonMatch = text.match(/\{[\s\S]*\}/);
+      if (!jsonMatch) throw new Error('Geen JSON gevonden in respons');
+      const parsed = JSON.parse(jsonMatch[0]);
+
+      const scores = DIMS.map(d => ({
+        id: d.id,
+        pct: parsed.scores[d.id]?.pct || 0,
+        observaties: parsed.scores[d.id]?.observaties || [],
+        verbeterpunten: parsed.scores[d.id]?.verbeterpunten || [],
+      }));
+
+      setAnalyseResultaat({ scores, samenvatting: parsed.samenvatting });
+      setAnalyseStatus('');
+      setStap(2);
+    } catch(e) {
+      console.error('[Analyse]', e);
+      alert('Er ging iets mis bij de analyse: ' + e.message);
+      setAnalyseStatus('');
+      setStap(0);
+    } finally {
+      setLoadingAnalyse(false);
+    }
+  };
+
+  // ── Verdiepende vragen ophalen ──────────────────────────────────────────────
+  const haalVerdiependeVragen = async () => {
+    if (!analyseResultaat) return;
+    setLoadingVragen(true);
+    setStap(3);
+
+    const scoresText = analyseResultaat.scores
+      .map(s => `${s.id}: ${s.pct}%`)
+      .join(', ');
+
+    const laagsteScores = [...analyseResultaat.scores]
+      .sort((a,b) => a.pct - b.pct)
+      .slice(0, 3)
+      .map(s => s.id);
+
+    const prompt = `Je bent een strategieconsultant. Je hebt een dashboard geanalyseerd voor een bedrijf met strategisch doel: "${strategischDoel}".
+
+Scores: ${scoresText}
+Laagste dimensies: ${laagsteScores.join(', ')}
+
+Stel precies 3 verdiepende vragen gebaseerd op de laagste scores. Elke vraag heeft 3-4 keuze-opties plus altijd "Anders" als optie. De vragen helpen je de situatie beter te begrijpen voor het eindadvies.
+
+Schrijfstijl: schrijf natuurlijk, direct Nederlands. Gebruik geen liggende gedachtestrepen (—) en geen nadrukaccenten zoals "én" of "vóór".
+
+Geef je antwoord ALLEEN als JSON:
+{
+  "vragen": [
+    {
+      "dimensie": "id van de dimensie",
+      "vraag": "De vraag tekst",
+      "opties": ["Optie 1", "Optie 2", "Optie 3", "Anders"],
+      "toelichting_prompt": "optionele placeholder voor toelichting bij een keuze (of null)"
+    }
+  ]
+}`;
+
+    try {
+      const res = await fetch(`${SUPABASE_URL}/functions/v1/claude-proxy`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON,
+          'Authorization': `Bearer ${SUPABASE_ANON}`,
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-5',
+          max_tokens: 800,
+          messages: [{ role: 'user', content: prompt }],
+        }),
+      });
+      const data = await res.json();
+      const text = data.content?.find(b => b.type === 'text')?.text || '';
+      const clean = text.replace(/```json|```/g, '').trim();
+      const parsed = JSON.parse(clean);
+      setVragen(parsed.vragen || []);
+    } catch(e) {
+      console.error('[Vragen]', e);
+      setVragen([]);
+    } finally {
+      setLoadingVragen(false);
+    }
+  };
+
+  // ── Eindrapport genereren ───────────────────────────────────────────────────
+  const genereerEindrapport = async () => {
+    if (!analyseResultaat) return;
+    setLoadingRapport(true);
+    setStap(4);
+
+    const antwoordenTekst = vragen.map((v, i) => {
+      const a = antwoorden[i];
+      return `${v.vraag}: ${a?.keuze || '—'}${a?.toelichting ? ' (' + a.toelichting + ')' : ''}`;
+    }).join('\n');
+
+    const prompt = `Je bent een strategieconsultant. Genereer een definitief rapport voor dit dashboard.
+
+Bedrijf: ${contact.bedrijf}
+Strategisch doel: ${strategischDoel}
+
+Eerste analyse scores:
+${analyseResultaat.scores.map(s => `${s.id}: ${s.pct}%`).join('\n')}
+
+Verdiepende antwoorden:
+${antwoordenTekst || '(geen antwoorden gegeven)'}
+
+Genereer op basis van alle bovenstaande informatie:
+1. Eventueel bijgestelde scores per dimensie (als de antwoorden aanleiding geven)
+2. Top 5 meest urgente verbeterpunten overall (concreet en actiegericht, gebaseerd op de totale analyse)
+3. Een persoonlijk advies direct aan ${contact.bedrijf || 'de organisatie'} (2-3 zinnen, spreek ze aan met "je/jullie"): wat is voor hen nu de belangrijkste stap om het dashboard te verbeteren, en waarom is dat urgent?
+
+Schrijfstijl: schrijf natuurlijk, direct Nederlands. Gebruik geen liggende gedachtestrepen (—). Gebruik geen nadrukaccenten op klinkers zoals "én", "vóór" of "wél", schrijf gewoon "en", "voor", "wel". Vermijd Engelse termen waar een goed Nederlands woord bestaat.
+
+Geef je antwoord ALLEEN als JSON:
+{
+  "scores": {
+    "strategisch":   { "pct": 0-100, "observaties": ["..."], "verbeterpunten": ["...", "..."] },
+    "besliskracht":  { "pct": 0-100, "observaties": ["..."], "verbeterpunten": ["...", "..."] },
+    "datakwaliteit": { "pct": 0-100, "observaties": ["..."], "verbeterpunten": ["...", "..."] },
+    "actualiteit":   { "pct": 0-100, "observaties": ["..."], "verbeterpunten": ["...", "..."] },
+    "gebruiksgemak": { "pct": 0-100, "observaties": ["..."], "verbeterpunten": ["...", "..."] },
+    "lerend":        { "pct": 0-100, "observaties": ["..."], "verbeterpunten": ["...", "..."] }
+  },
+  "top5": [
+    { "tip": "concreet verbeterpunt", "dim": "naam van dimensie" }
+  ],
+  "advies": "2-3 zinnen, direct aan de klant gericht"
+}`;
+
+    try {
+      const res = await fetch(`${SUPABASE_URL}/functions/v1/claude-proxy`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON,
+          'Authorization': `Bearer ${SUPABASE_ANON}`,
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-5',
+          max_tokens: 4000,
+          messages: [{ role: 'user', content: prompt }],
+        }),
+      });
+      const data = await res.json();
+      const text = data.content?.find(b => b.type === 'text')?.text || '';
+      const clean = text.replace(/```json|```/g, '').trim();
+      const parsed = JSON.parse(clean);
+
+      const scores = DIMS.map(d => ({
+        id: d.id,
+        pct: parsed.scores[d.id]?.pct || 0,
+        observaties: parsed.scores[d.id]?.observaties || [],
+        verbeterpunten: parsed.scores[d.id]?.verbeterpunten || [],
+      }));
+
+      const totaal = Math.round(scores.reduce((s,d) => s+d.pct, 0) / scores.length);
+      const definitiefRapport = { scores, top5: parsed.top5 || [], advies: parsed.advies, totaal };
+      setRapport(definitiefRapport);
+
+      // PDF bouwen, beschikbaar maken voor download en opslaan
+      const pdfB64 = buildPdf(contact, strategischDoel, scores, parsed.top5 || [], vragen, antwoorden);
+      setPdfBase64(pdfB64);
+      await saveToSupabase(contact, strategischDoel, scores, vragen, antwoorden, pdfB64);
+
+    } catch(e) {
+      console.error('[Rapport]', e);
+      alert('Er ging iets mis. Probeer het opnieuw.');
+      setStap(3);
+    } finally {
+      setLoadingRapport(false);
+    }
+  };
+
+  // ── Contact validatie ────────────────────────────────────────────────────────
+  const valideerContact = () => {
+    if (!contact.naam.trim())    { setContactFout('Vul je naam in.'); return false; }
+    if (!contact.bedrijf.trim()) { setContactFout('Vul je bedrijfsnaam in.'); return false; }
+    if (!contact.email.trim() || !contact.email.includes('@')) { setContactFout('Vul een geldig e-mailadres in.'); return false; }
+    setContactFout('');
+    return true;
+  };
+
+  const totaalScore = analyseResultaat
+    ? Math.round(analyseResultaat.scores.reduce((s,d) => s+d.pct, 0) / analyseResultaat.scores.length)
+    : 0;
+
+  // ── RENDER ───────────────────────────────────────────────────────────────────
+  return (
+    <div style={{ maxWidth: 720, margin: '0 auto', padding: '28px 16px 80px' }}>
+
+      {/* Hero */}
+      <div style={{ marginBottom: 28, textAlign: 'center' }}>
+        <div style={{
+          display: 'inline-block',
+          background: 'var(--sb-gradient)',
+          WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
+          fontFamily: 'var(--font-display)', fontSize: 'clamp(28px,6vw,44px)',
+          letterSpacing: '0.04em', lineHeight: 1.1, marginBottom: 10,
+        }}>
+          DASHBOARD BEOORDELING
+        </div>
+        <p style={{ fontSize: 15, color: 'var(--sb-mid)', maxWidth: 520, margin: '0 auto', lineHeight: 1.6 }}>
+          Upload je management dashboard en ontvang een gratis beoordeling op strategie, sturing en datakwaliteit.
+        </p>
+      </div>
+
+      <StepBar active={stap} />
+
+      {/* ── STAP 0: Upload ─────────────────────────────────────────────────── */}
+      {stap === 0 && (
+        <div className="fade-in">
+          <div className="card">
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 20, color: 'var(--sb-purple)', marginBottom: 16, letterSpacing: '0.04em' }}>
+              STAP 1: UPLOAD JE DASHBOARD
+            </h2>
+
+            {!file ? (
+              <div
+                className={`drop-zone ${dragOver ? 'drag-over' : ''}`}
+                onClick={() => fileInputRef.current?.click()}
+                onDragOver={e => { e.preventDefault(); setDragOver(true); }}
+                onDragLeave={() => setDragOver(false)}
+                onDrop={onDrop}
+              >
+                <input ref={fileInputRef} type="file" accept=".pdf,.png,.jpg,.jpeg,.webp"
+                  onChange={e => verwerkFile(e.target.files[0])} />
+                <div style={{ fontSize: 40, marginBottom: 12 }}>📊</div>
+                <p style={{ fontWeight: 700, fontSize: 15, marginBottom: 6, color: 'var(--sb-black)' }}>
+                  Sleep je dashboard hiernaartoe
+                </p>
+                <p style={{ fontSize: 13, color: 'var(--sb-mid)' }}>
+                  of klik om te uploaden — PDF, PNG, JPG of WebP, max. 10 MB
+                </p>
+              </div>
+            ) : (
+              <div>
+                <div className="thumb-wrap" style={{ marginBottom: 12 }}>
+                  {fileMime === 'application/pdf' ? (
+                    <div style={{ padding: 24, textAlign: 'center' }}>
+                      <div style={{ fontSize: 48, marginBottom: 8 }}>📄</div>
+                      <p style={{ fontSize: 13, color: 'var(--sb-mid)' }}>{file.name}</p>
+                      <p style={{ fontSize: 12, color: 'var(--sb-mid)' }}>{Math.round(file.size/1024)} KB</p>
+                    </div>
+                  ) : (
+                    <img src={fileDataUrl} alt="Dashboard preview" />
+                  )}
+                  <button className="thumb-remove" onClick={() => { setFile(null); setFileDataUrl(null); setFileBase64(null); }}>✕</button>
+                </div>
+                <p style={{ fontSize: 12, color: 'var(--sb-mid)', marginBottom: 0 }}>
+                  ✓ {file.name} — {Math.round(file.size/1024)} KB
+                </p>
+              </div>
+            )}
+          </div>
+
+          <div className="card">
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 20, color: 'var(--sb-purple)', marginBottom: 6, letterSpacing: '0.04em' }}>
+              STRATEGISCH DOEL
+            </h2>
+            <p style={{ fontSize: 13, color: 'var(--sb-mid)', marginBottom: 14, lineHeight: 1.5 }}>
+              Dit is de maatstaaf waaraan we het dashboard toetsen. Wees concreet: niet "groeien" maar bijv. "omzetgroei van 20% in 2025 via nieuwe markten".
+            </p>
+            <textarea
+              className="sb-input" rows={3}
+              style={{ resize: 'vertical', fontSize: 14 }}
+              placeholder="Bijv. 'Winstgevende omzetgroei van 15% door focus op bestaande klanten en marge-verbetering'"
+              value={strategischDoel}
+              onChange={e => setStrategischDoel(e.target.value)}
+            />
+          </div>
+
+          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <button
+              className="btn-primary"
+              disabled={!file || !strategischDoel.trim() || loadingAnalyse}
+              onClick={startAnalyse}
+            >
+              {loadingAnalyse ? <><div className="spinner" style={{width:18,height:18,borderWidth:2}} /> Analyseren...</> : 'Analyseer mijn dashboard →'}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* ── STAP 1: Laden analyse ──────────────────────────────────────────── */}
+      {stap === 1 && loadingAnalyse && (
+        <div className="card fade-in" style={{ textAlign: 'center', padding: '48px 28px' }}>
+          <div className="spinner" style={{ marginBottom: 20 }} />
+          <p style={{ fontFamily: 'var(--font-display)', fontSize: 22, color: 'var(--sb-purple)', letterSpacing: '0.04em', marginBottom: 6 }}>
+            DASHBOARD WORDT GEANALYSEERD
+          </p>
+          <p style={{ fontSize: 13, color: 'var(--sb-mid)', marginBottom: 28 }}>
+            We toetsen je dashboard op 6 dimensies aan het opgegeven strategische doel
+          </p>
+          <AnalyseProgress status={analyseStatus} />
+        </div>
+      )}
+
+      {/* ── STAP 2: Eerste analyse + contactgegevens ───────────────────────── */}
+      {stap === 2 && analyseResultaat && (
+        <div className="fade-in">
+          {/* Samenvatting */}
+          <div className="card" style={{ borderLeft: '4px solid var(--sb-purple)' }}>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 18, color: 'var(--sb-purple)', marginBottom: 10, letterSpacing: '0.04em' }}>
+              EERSTE INDRUK
+            </h2>
+            <p style={{ fontSize: 14, lineHeight: 1.65, color: 'var(--sb-black)' }}>
+              {analyseResultaat.samenvatting}
+            </p>
+          </div>
+
+          {/* Radar + totaalscore */}
+          <div className="card">
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 18, color: 'var(--sb-purple)', letterSpacing: '0.04em' }}>
+                STRATEGIEPROFIEL
+              </h2>
+              <div style={{
+                background: 'var(--sb-gradient)', borderRadius: 8, padding: '6px 14px',
+                color: 'white', fontFamily: 'var(--font-display)', fontSize: 20, letterSpacing: '0.04em',
+              }}>
+                {totaalScore}%
+              </div>
+            </div>
+            <RadarChart scores={analyseResultaat.scores} />
+          </div>
+
+          {/* Scores per dimensie */}
+          <div className="card">
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 18, color: 'var(--sb-purple)', marginBottom: 16, letterSpacing: '0.04em' }}>
+              SCORES PER DIMENSIE
+            </h2>
+            {analyseResultaat.scores.map(s => {
+              const dim  = DIMS.find(d => d.id === s.id);
+              const info = getLabelInfo(s.pct);
+              const open = expandedDim === s.id;
+              return (
+                <div key={s.id} className="dim-block">
+                  <div className="dim-header" onClick={() => setExpandedDim(open ? null : s.id)}
+                    style={{ background: open ? '#F4F3FC' : 'white' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                      <div style={{ width: 10, height: 10, borderRadius: '50%', background: dim?.color, flexShrink: 0 }} />
+                      <span style={{ fontSize: 13, fontWeight: 700 }}>{dim?.label}</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                      <span style={{ fontSize: 12, fontWeight: 700, color: info.color }}>{s.pct}% — {info.label}</span>
+                      <span style={{ fontSize: 10, color: '#999', transform: open?'rotate(180deg)':'none', transition:'transform 0.2s' }}>▼</span>
+                    </div>
+                  </div>
+                  <div style={{ padding: '0 16px' }}>
+                    <ScoreBar pct={s.pct} color={dim?.color} />
+                  </div>
+                  {open && (
+                    <div className="dim-body fade-in">
+                      {s.observaties?.length > 0 && (
+                        <>
+                          <p style={{ fontSize: 11, fontWeight: 700, color: 'var(--sb-mid)', textTransform: 'uppercase', letterSpacing: '0.07em', margin: '12px 0 6px' }}>Observaties</p>
+                          <ul className="obs-list">
+                            {s.observaties.map((o,i) => <li key={i}>{o}</li>)}
+                          </ul>
+                        </>
+                      )}
+                      {s.verbeterpunten?.length > 0 && (
+                        <>
+                          <p style={{ fontSize: 11, fontWeight: 700, color: 'var(--sb-mid)', textTransform: 'uppercase', letterSpacing: '0.07em', margin: '12px 0 6px' }}>Verbeterpunten</p>
+                          <ul className="obs-list">
+                            {s.verbeterpunten.map((v,i) => <li key={i}>{v}</li>)}
+                          </ul>
+                        </>
+                      )}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Contactgegevens */}
+          <div className="card" style={{ border: '2px solid var(--sb-purple)' }}>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 18, color: 'var(--sb-purple)', marginBottom: 6, letterSpacing: '0.04em' }}>
+              ONTVANG JE VOLLEDIGE RAPPORT
+            </h2>
+            <p style={{ fontSize: 13, color: 'var(--sb-mid)', marginBottom: 18, lineHeight: 1.5 }}>
+              We stellen 3 verdiepende vragen en genereren daarna een volledig rapport met je top 5 verbeterpunten en een persoonlijk advies.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              <input className="sb-input" type="text" placeholder="Jouw naam"
+                value={contact.naam} onChange={e => setContact(c => ({...c, naam: e.target.value}))} />
+              <input className="sb-input" type="text" placeholder="Bedrijfsnaam"
+                value={contact.bedrijf} onChange={e => setContact(c => ({...c, bedrijf: e.target.value}))} />
+              <input className="sb-input" type="email" placeholder="E-mailadres"
+                value={contact.email} onChange={e => setContact(c => ({...c, email: e.target.value}))} />
+            </div>
+            {contactFout && <p style={{ color: 'var(--sb-red)', fontSize: 12, marginTop: 8 }}>{contactFout}</p>}
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 18 }}>
+              <button className="btn-primary" disabled={loadingVragen}
+                onClick={() => { if (valideerContact()) haalVerdiependeVragen(); }}>
+                {loadingVragen ? <><div className="spinner" style={{width:18,height:18,borderWidth:2}} /> Laden...</> : 'Verder naar verdieping →'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── STAP 3: Verdiepende vragen ─────────────────────────────────────── */}
+      {stap === 3 && (
+        <div className="fade-in">
+          {loadingVragen ? (
+            <div className="card" style={{ textAlign: 'center', padding: '60px 24px' }}>
+              <div className="spinner" style={{ marginBottom: 20 }} />
+              <p style={{ fontFamily: 'var(--font-display)', fontSize: 20, color: 'var(--sb-purple)', letterSpacing:'0.04em' }}>
+                VERDIEPENDE VRAGEN WORDEN OPGESTELD
+              </p>
+            </div>
+          ) : (
+            <>
+              <div style={{ marginBottom: 20 }}>
+                <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 22, color: 'var(--sb-purple)', letterSpacing: '0.04em', marginBottom: 6 }}>
+                  3 VERDIEPENDE VRAGEN
+                </h2>
+                <p style={{ fontSize: 14, color: 'var(--sb-mid)', lineHeight: 1.5 }}>
+                  Op basis van de analyse hebben we 3 gerichte vragen. Jouw antwoorden verfijnen het eindrapport.
+                </p>
+              </div>
+
+              {vragen.map((v, i) => (
+                <VraagCard key={i} vraag={v} index={i}
+                  onChange={a => setAntwoorden(prev => ({...prev, [i]: a}))} />
+              ))}
+
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 8 }}>
+                <button className="btn-secondary" onClick={() => setStap(2)}>← Terug</button>
+                <button className="btn-primary" disabled={loadingRapport}
+                  onClick={genereerEindrapport}>
+                  {loadingRapport
+                    ? <><div className="spinner" style={{width:18,height:18,borderWidth:2}} /> Rapport genereren...</>
+                    : 'Genereer mijn rapport →'}
+                </button>
+              </div>
+            </>
+          )}
+        </div>
+      )}
+
+      {/* ── STAP 4: Eindrapport ────────────────────────────────────────────── */}
+      {stap === 4 && (
+        <div className="fade-in">
+          {loadingRapport ? (
+            <div className="card" style={{ textAlign: 'center', padding: '48px 28px' }}>
+              <div className="spinner" style={{ marginBottom: 20 }} />
+              <p style={{ fontFamily: 'var(--font-display)', fontSize: 20, color: 'var(--sb-purple)', letterSpacing:'0.04em', marginBottom: 6 }}>
+                RAPPORT WORDT GEGENEREERD
+              </p>
+              <p style={{ fontSize: 13, color: 'var(--sb-mid)', marginBottom: 28 }}>
+                We verwerken je antwoorden en stellen het definitieve rapport op
+              </p>
+              <RapportProgress />
+            </div>
+          ) : rapport ? (
+            <>
+              {/* Advies */}
+              <div className="card" style={{ borderLeft: '4px solid var(--sb-amber)', background: '#FFFBF0' }}>
+                <p style={{ fontSize: 11, fontWeight: 700, color: '#F5A623', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>
+                  Ons advies voor {contact.bedrijf || 'jou'}
+                </p>
+                <p style={{ fontSize: 14, lineHeight: 1.65 }}>{rapport.advies}</p>
+              </div>
+
+              {/* Radar definitief */}
+              <div className="card">
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
+                  <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 18, color: 'var(--sb-purple)', letterSpacing: '0.04em' }}>
+                    DEFINITIEF PROFIEL
+                  </h2>
+                  <div style={{
+                    background: 'var(--sb-gradient)', borderRadius: 8, padding: '6px 14px',
+                    color: 'white', fontFamily: 'var(--font-display)', fontSize: 20, letterSpacing: '0.04em',
+                  }}>
+                    {rapport.totaal}%  {getLabelInfo(rapport.totaal).label}
+                  </div>
+                </div>
+                <RadarChart scores={rapport.scores} />
+              </div>
+
+              {/* Scores */}
+              <div className="card">
+                <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 18, color: 'var(--sb-purple)', marginBottom: 16, letterSpacing: '0.04em' }}>
+                  INTERPRETATIE
+                </h2>
+                {rapport.scores.map(s => {
+                  const dim  = DIMS.find(d => d.id === s.id);
+                  const info = getLabelInfo(s.pct);
+                  return (
+                    <div key={s.id} style={{
+                      padding: '14px 16px', marginBottom: 10, borderRadius: 8,
+                      background: s.pct<40?'#FFF5F5':s.pct>=60?'#F5FBF5':'#FFFBF0',
+                      borderLeft: `4px solid ${info.color}`,
+                    }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
+                        <span style={{ fontSize: 13, fontWeight: 700 }}>{dim?.label}</span>
+                        <span style={{ fontSize: 11, fontWeight: 700, color: info.color, textTransform: 'uppercase', letterSpacing: '0.07em' }}>
+                          {s.pct}% — {info.label}
+                        </span>
+                      </div>
+                      {s.observaties?.length > 0 && (
+                        <ul className="obs-list" style={{ marginBottom: 8 }}>
+                          {s.observaties.map((o,i) => <li key={i}>{o}</li>)}
+                        </ul>
+                      )}
+                      {s.verbeterpunten?.length > 0 && (
+                        <>
+                          <p style={{ fontSize: 11, fontWeight: 700, color: info.color, textTransform: 'uppercase', letterSpacing: '0.07em', margin: '8px 0 6px', borderTop: '1px solid rgba(0,0,0,0.07)', paddingTop: 8 }}>
+                            Verbeterpunten
+                          </p>
+                          <ul className="obs-list">
+                            {s.verbeterpunten.map((v,i) => <li key={i}>{v}</li>)}
+                          </ul>
+                        </>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Top 5 */}
+              <div className="card">
+                <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 18, color: 'var(--sb-purple)', marginBottom: 16, letterSpacing: '0.04em' }}>
+                  TOP 5 MEEST URGENTE VERBETERPUNTEN
+                </h2>
+                {rapport.top5.map((item, i) => (
+                  <div key={i} className="top5-item">
+                    <div className="top5-num">{i+1}</div>
+                    <div style={{ flex: 1 }}>
+                      <p style={{ fontSize: 13, lineHeight: 1.55, marginBottom: 4 }}>{item.tip}</p>
+                      <span style={{ fontSize: 11, color: 'var(--sb-mid)', fontStyle: 'italic' }}>{item.dim}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <div className="cta-block">
+                <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 24, letterSpacing: '0.05em', marginBottom: 10 }}>
+                  KLAAR VOOR DE VOLGENDE STAP?
+                </h2>
+                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.85)', lineHeight: 1.7, marginBottom: 22, maxWidth: 480 }}>
+                  Op basis van jouw dashboard zien wij concrete groeikansen. Wil je die samen doorspreken? Plan hier een gratis kennismaking.
+                </p>
+                <button
+                  className="btn-primary"
+                  onClick={() => window.Cal?.ns?.kennismakingsgesprek?.('modal', {
+                    calLink: 'ian-meinoud/kennismakingsgesprek',
+                    config: { layout: 'month_view' }
+                  })}
+                >
+                  📅 PLAN GRATIS KENNISMAKING
+                </button>
+              </div>
+
+              {/* Acties */}
+              <div style={{ display: 'flex', justifyContent: 'center', gap: 12, flexWrap: 'wrap', marginTop: 24 }}>
+                <button className="btn-secondary" onClick={() => {
+                  setStap(0); setFile(null); setFileDataUrl(null); setFileBase64(null);
+                  setStrategischDoel(''); setAnalyseResultaat(null); setRapport(null);
+                  setVragen([]); setAntwoorden({}); setContact({naam:'',bedrijf:'',email:''});
+                  setPdfBase64(null);
+                }}>
+                  ← Nieuw dashboard beoordelen
+                </button>
+                <button className="btn-secondary" onClick={downloadPdf} disabled={!pdfBase64}>
+                  ↓ Download PDF
+                </button>
+              </div>
+            </>
+          ) : null}
+        </div>
+      )}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HZJHY38M1R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HZJHY38M1R');
+</script>
+<meta charset="UTF-8">
+  <!-- Security headers -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' 'unsafe-eval'
+      https://unpkg.com
+      https://cdnjs.cloudflare.com
+      https://cdn.jsdelivr.net
+      https://cdn.emailjs.com
+      https://app.cal.eu https://cal.eu https://*.cal.eu
+      https://app.cal.com https://*.cal.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com
+      https://app.cal.eu https://*.cal.eu;
+    font-src 'self' https://fonts.gstatic.com
+      https://app.cal.eu https://*.cal.eu;
+    img-src 'self' data: https://img.logo.dev https://logo.clearbit.com https://ui-avatars.com
+      https://*.cal.eu https://*.cal.com;
+    connect-src 'self' https://api.kvk.nl https://api.emailjs.com https://*.supabase.co https://supabase.co
+      https://app.cal.eu https://cal.eu https://*.cal.eu
+      https://app.cal.com https://*.cal.com;
+    frame-src https://app.cal.eu https://cal.eu https://*.cal.eu
+      https://app.cal.com https://*.cal.com;
+    object-src 'none';
+    base-uri 'self';
+  ">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Strategiescan — Strategieboost</title>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js" integrity="sha384-ZZ1pncU3bQe8y31yfZdMFdSpttDoPmOZg2wguVK9almUodir1PghgT0eY7Mrty8H" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha384-JcnsjUPPylna1s1fvi1u12X5qjY5OL56iySh75FdtrwhO/SWXgMjoVqcKyIIWOLk" crossorigin="anonymous"></script>
+<script type="text/javascript">
+(function (C, A, L) {
+  let p = function (a, ar) { a.q.push(ar); };
+  let d = C.document;
+  C.Cal = C.Cal || function () {
+    let cal = C.Cal; let ar = arguments;
+    if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
+    if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar); return; }
+    p(cal, ar);
+  };
+})(window, "https://app.cal.eu/embed/embed.js", "init");
+Cal("init", "kennismakingsgesprek", { origin: "https://cal.eu" });
+Cal.ns["kennismakingsgesprek"]("ui", {
+  styles: { branding: { brandColor: "#3D2882" } },
+  hideEventTypeDetails: false,
+  layout: "month_view"
+});
+</script>
+
+<style>
+@font-face {
+  font-family: 'Bebas Neue Rounded';
+  src: url('BebasNeueRounded-Regular.woff2') format('woff2'),
+       url('BebasNeueRounded-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+/* Segoe UI via systeemfont — geen bestanden nodig */
+
+:root {
+  --sb-purple: #3D2882;
+  --sb-violet: #6B3194;
+  --sb-red: #C52339;
+  --sb-orange: #F7941D;
+  --sb-amber: #F5C23A;
+  --sb-gradient: linear-gradient(135deg, #3D2882 0%, #6B3194 30%, #C52339 65%, #F7941D 100%);
+  --sb-gradient-h: linear-gradient(90deg, #3D2882 0%, #6B3194 30%, #C52339 65%, #F7941D 100%);
+  --sb-gradient-warm: linear-gradient(90deg, #F5C23A 0%, #F7941D 100%);
+  --sb-black: #1A1A1A;
+  --sb-mid: #6B6B6B;
+  --sb-light: #C8C8C8;
+  --sb-off-white: #F4F3F0;
+  --sb-white: #FFFFFF;
+  --font-display: 'Bebas Neue Rounded', 'Bebas Neue', Impact, 'Arial Narrow', sans-serif;
+  --font-body: -apple-system, 'Segoe UI', system-ui, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --shadow-md: 0 4px 12px rgba(61,40,130,0.12);
+  --shadow-lg: 0 10px 30px rgba(61,40,130,0.18);
+  --radius-md: 8px;
+  --radius-lg: 16px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--sb-off-white);
+  color: var(--sb-black);
+  min-height: 100vh;
+}
+
+/* Scrollbar for option rows (desktop) */
+.options-row::-webkit-scrollbar { height: 4px; }
+.options-row::-webkit-scrollbar-track { background: #f0edf8; border-radius: 2px; }
+.options-row::-webkit-scrollbar-thumb { background: #c8c0e8; border-radius: 2px; }
+
+/* Mobile: stack options vertically */
+@media (max-width: 600px) {
+  .options-row {
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+    overflow-x: visible !important;
+    gap: 8px !important;
+  }
+  .options-row > * {
+    width: 100% !important;
+    text-align: left !important;
+    justify-content: flex-start !important;
+  }
+}
+
+/* ── Moderne mobiele optimalisaties ─────────────────────────── */
+@media (max-width: 600px) {
+  /* Opties verticaal gestapeld */
+  .options-row {
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+    overflow-x: visible !important;
+    gap: 8px !important;
+  }
+  .options-row > * {
+    width: 100% !important;
+    min-height: 44px !important;
+    text-align: left !important;
+    justify-content: flex-start !important;
+  }
+  /* Navigatieknoppen minimaal 44px hoog (Apple HIG) */
+  button { min-height: 44px; }
+}
+
+/* Smooth scrolling op alle mobiel */
+html { -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
+
+/* Voorkom tekst-grootte aanpassing op iOS na rotatie */
+body { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+/* Tap highlight verwijderen op knoppen */
+button, a { -webkit-tap-highlight-color: transparent; }
+
+@media print {
+  body { background: white !important; }
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
+  .results-page { box-shadow: none !important; margin: 0 !important; padding: 0 !important; }
+  .radar-container, .score-cards, .interpretatie-block { page-break-inside: avoid; }
+  @page { margin: 1.5cm; }
+}
+.print-only { display: none; }
+#root { min-height: 100vh; }
+
+/* ── Back to website link — visible on every scan step ── */
+.back-to-site {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px 9px 12px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: var(--sb-purple);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border-radius: 999px;
+  border: 1px solid rgba(61,40,130,0.12);
+  box-shadow: 0 2px 8px rgba(61,40,130,0.10);
+  transition: background 0.15s, color 0.15s, transform 0.1s;
+}
+.back-to-site:hover {
+  background: #fff;
+  color: var(--sb-orange);
+}
+.back-to-site:active { transform: scale(0.97); }
+.back-to-site .arrow { font-size: 16px; line-height: 1; }
+@media (max-width: 520px) {
+  .back-to-site { font-size: 12px; padding: 8px 14px 8px 10px; }
+}
+/* ── Moderne mobiele optimalisaties ─────────────────────────── */
+@media (max-width: 600px) {
+  /* Opties verticaal gestapeld */
+  .options-row {
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+    overflow-x: visible !important;
+    gap: 8px !important;
+  }
+  .options-row > * {
+    width: 100% !important;
+    min-height: 44px !important;
+    text-align: left !important;
+    justify-content: flex-start !important;
+  }
+  /* Navigatieknoppen minimaal 44px hoog (Apple HIG) */
+  button { min-height: 44px; }
+}
+
+/* Smooth scrolling op alle mobiel */
+html { -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
+
+/* Voorkom tekst-grootte aanpassing op iOS na rotatie */
+body { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+/* Tap highlight verwijderen op knoppen */
+button, a { -webkit-tap-highlight-color: transparent; }
+
+@media print {
+  .back-to-site { display: none !important; }
+}
+</style>
+</head>
+<body>
+<a href="index.html" class="back-to-site no-print" aria-label="Terug naar de Strategieboost website">
+  <span class="arrow" aria-hidden="true">←</span>
+  <span>Terug naar website</span>
+</a>
+<div id="root"></div>
+
+<script type="text/babel">
+
+const { useState, useEffect, useRef, useCallback } = React;
+
+// ─── DATA ────────────────────────────────────────────────────────────────────
+
+const SCALE_MAIN = [
+  { label: 'Niet / geen', value: 1 },
+  { label: 'Een beetje', value: 2 },
+  { label: 'Enigszins', value: 3 },
+  { label: 'Redelijk', value: 4 },
+  { label: 'Voldoende', value: 5 },
+  { label: 'Goed', value: 6 },
+  { label: 'Volledig', value: 7 },
+];
+
+const SCALE_KWALITEIT = [
+  { label: 'Matig', value: 1 },
+  { label: 'Zwak', value: 2 },
+  { label: 'Voldoende', value: 3 },
+  { label: 'Goed', value: 5 },
+  { label: 'Zeer goed', value: 7 },
+];
+
+const SCALE_PROCENT = [
+  { label: '< 20%', value: 1 },
+  { label: '< 40%', value: 2 },
+  { label: '< 60%', value: 3 },
+  { label: '< 80%', value: 5 },
+  { label: '> 80%', value: 7 },
+];
+
+const SCALE_JANEE = [
+  { label: 'Ja', value: 5 },
+  { label: 'Nee', value: 1 },
+];
+
+const SCALE_INTENSITEIT = [
+  { label: 'Niet / geen', value: 1 },
+  { label: 'Beperkt', value: 2 },
+  { label: 'Redelijk', value: 3 },
+  { label: 'Hoog', value: 5 },
+  { label: 'Zeer hoog', value: 7 },
+];
+
+const SCALE_MATE = [
+  { label: 'Niet', value: 1 },
+  { label: 'Nauwelijks', value: 2 },
+  { label: 'Beperkt', value: 3 },
+  { label: 'Vrij veel', value: 5 },
+  { label: 'Erg veel', value: 7 },
+];
+
+const SCALE_REVERSED = [
+  { label: 'Niet', value: 7 },
+  { label: 'Nauwelijks', value: 5 },
+  { label: 'Beperkt', value: 3 },
+  { label: 'Vrij veel', value: 2 },
+  { label: 'Erg veel', value: 1 },
+];
+
+const SECTIONS = [
+  {
+    id: 'strategie', title: '1. Realistische strategie', shortTitle: 'Strategie',
+    intro: 'Heb je een realistische strategie?', color: '#3D2882',
+    questions: [
+      { id: '1.1', text: 'Heb je een duidelijke visie en missie die bekend is bij alle medewerkers?', scale: SCALE_JANEE },
+      { id: '1.2', text: 'In hoeverre is jouw strategisch plan gemaakt met goede analyses, feitelijk onderbouwde (markt)informatie en bijv. een SWOT-analyse?', scale: SCALE_INTENSITEIT },
+      { id: '1.3', text: 'In hoeverre heb je ook echt een duidelijke keuze gemaakt (en dus last gehad van keuzepijn)?', scale: SCALE_MATE },
+      { id: '1.4', text: 'In hoeverre zijn er processen gestopt, verminderd of verbeterd?', scale: SCALE_MATE },
+      { id: '1.5', text: 'Heb je een duidelijke doelgroep(en) met een daarop afgestemd aanbod?' },
+      { id: '1.6', text: 'Heb je een duidelijk voordeel dat je biedt ten opzichte van jouw concurrentie en erkennen jouw klanten dit ook?' },
+      { id: '1.7', text: 'Is dit voordeel duurzaam en blijvend? (minimaal 5 jaar)' },
+    ],
+  },
+  {
+    id: 'implementatieplan', title: '2. Volledig implementatieplan', shortTitle: 'Implementatieplan',
+    intro: 'Heb je een volledig implementatieplan?', color: '#5A2B8A',
+    questions: [
+      { id: '2.1', text: 'Heb je voldoende capaciteit beschikbaar om de uitvoering te realiseren?' },
+      { id: '2.2', text: 'Zijn alle belanghebbenden geïnformeerd en is de koers met hen afgestemd?' },
+      { id: '2.3', text: 'In hoeverre is het tijdspad realistisch?' },
+      { id: '2.4', text: 'Zijn de rollen en taken duidelijk en bij iedereen belegd?' },
+      { id: '2.5', text: 'Hoeveel procent van de strategische doelen zijn voorzien van een kwantitatief target?', scale: SCALE_PROCENT },
+      { id: '2.6', text: 'Voor hoeveel procent van de kwantitatieve targets heb je een passend meet- en controlesysteem geïmplementeerd?', scale: SCALE_PROCENT },
+    ],
+  },
+  {
+    id: 'belemmeringen', title: '3. Belemmeringen en barrières', shortTitle: 'Belemmeringen & barrières',
+    intro: 'Wat zijn de belemmeringen en barrières?', color: '#8B2A7A',
+    questions: [
+      { id: '3.1', text: 'In welke mate kan de historie van jouw bedrijf de strategie tegenwerken?', scale: SCALE_MATE },
+      { id: '3.2', text: 'In welke mate geloven medewerkers dat de nieuwe strategie hen zal helpen om hun werk beter of sneller te doen?' },
+      { id: '3.3', text: 'In welke mate vertrouwen medewerkers erop dat de nieuwe strategie hun werk eenvoudiger of makkelijker zal maken?' },
+      { id: '3.4', text: 'In welke mate geloven medewerkers dat er is gezorgd voor voldoende organisatorische en technische ondersteuning bij het realiseren van de nieuwe strategie?', scale: SCALE_MATE },
+      { id: '3.5', text: 'In welke mate vind je dat jij en jouw medeleidinggevenden het juiste voorbeeldgedrag geven?' },
+    ],
+  },
+  {
+    id: 'opruimen', title: '4. Opruimen van belemmeringen', shortTitle: 'Opruimen belemmeringen',
+    intro: 'In hoeverre worden belemmeringen actief opgeruimd?', color: '#C52339',
+    questions: [
+      { id: '4.1', text: 'In hoeverre zou het inhuren van tijdelijke krachten een mogelijk capaciteitstekort voor de uitvoering van de strategie kunnen oplossen?' },
+      { id: '4.2', text: 'In hoeverre moet de rol van het middenmanagement verbeterd worden? (verbinden, communiceren, motiveren, schakel tussen jou en de werkvloer)', scale: SCALE_REVERSED },
+      { id: '4.3', text: 'In welke mate is de strategie met actieve input van de medewerkers tot stand gekomen?' },
+      { id: '4.4', text: 'Zijn er signalen van "implementatiemoeheid" bij jouw mensen?', scale: SCALE_REVERSED },
+      { id: '4.5', text: 'In hoeverre heb je zekerheid dat je de acties in de juiste volgorde uitvoert? (dus niet beginnen met het dessert in plaats van het voorgerecht)' },
+    ],
+  },
+  {
+    id: 'vaardigheden', title: '5. Vaardigheden', shortTitle: 'Vaardigheden',
+    intro: 'Beschik je over de juiste vaardigheden?', color: '#E05C1A',
+    questions: [
+      { id: '5.1', text: 'In hoeverre beschik je over de juiste vaardigheden voor de implementatie? (bijv. technische of projectvaardigheden)', scale: SCALE_INTENSITEIT },
+      { id: '5.2', text: 'In welke mate zijn de nodige vaardigheden goed verdeeld in jouw organisatie?' },
+      { id: '5.3', text: 'Zijn de vaardigheden complementair aan elkaar?' },
+      { id: '5.4', text: 'Welk oordeel geef je over de mate waarin wordt samengewerkt in jouw organisatie?', scale: SCALE_KWALITEIT },
+    ],
+  },
+  {
+    id: 'lerend', title: '6. Lerende organisatie', shortTitle: 'Lerend',
+    intro: 'Is jouw organisatie lerend en adaptief?', color: '#F7941D',
+    questions: [
+      { id: '6.1', text: 'Wat is jouw oordeel over het vermogen om zich aan te passen aan de "lessons learned"?', scale: SCALE_KWALITEIT },
+      { id: '6.2', text: 'In welke mate worden nieuwe vaardigheden ook echt geborgd? (voorkomen van "oh, die is op cursus geweest")' },
+      { id: '6.3', text: 'Hoe moeilijk is het om gedrag van jou en jouw mensen te veranderen?', scale: SCALE_REVERSED },
+      { id: '6.4', text: 'Wat is jouw oordeel over het innovatieve vermogen van jouw organisatie?', scale: SCALE_KWALITEIT },
+      { id: '6.5', text: 'In welke mate is er sprake van ongeplande activiteiten of initiatieven in jouw bedrijf?', scale: SCALE_REVERSED },
+      { id: '6.6', text: 'In welke mate geef je ruimte voor tegenspraak?', scale: SCALE_INTENSITEIT },
+    ],
+  },
+];
+
+const FEEDBACK_MAP = {
+  strategie: {
+    high: 'Je strategische basis is sterk. Je hebt een heldere visie en een onderscheidend concurrentievoordeel.',
+    mid: 'Je strategie heeft een goede basis, maar er is nog werk aan de winkel. Verfijn je keuzes en maak je concurrentievoordeel scherper.',
+    low: 'De strategische basis vraagt urgente aandacht. Zonder een helder kompas loopt de uitvoering vast.',
+  },
+  implementatieplan: {
+    high: 'Je implementatieplan is solide: meetbare doelen, duidelijke rollen en realistische planning.',
+    mid: 'Het plan heeft contouren, maar mist op onderdelen concreetheid. Focus op meetbaarheid en capaciteit.',
+    low: 'Een implementatieplan ontbreekt of is onvolledig. Zonder plan is iedere strategie een wens.',
+  },
+  belemmeringen: {
+    high: 'Je hebt een goed oog voor interne weerstand en organiseert voldoende draagvlak.',
+    mid: 'Er zijn belemmeringen zichtbaar. Pak cultuur en vertrouwen proactief aan.',
+    low: 'Significante belemmeringen dreigen de strategie te kelderen. Dit verdient directe aandacht.',
+  },
+  opruimen: {
+    high: 'Obstakels worden effectief geïdentificeerd en aangepakt: goed leiderschap.',
+    mid: 'Er worden stappen gezet, maar niet consequent genoeg. Maak het opruimen een vast agendapunt.',
+    low: 'Belemmeringen worden onvoldoende weggenomen. Dit vertraagt iedere verandering.',
+  },
+  vaardigheden: {
+    high: 'Je organisatie beschikt over de juiste mix van vaardigheden en coördineert deze effectief.',
+    mid: 'De vaardigheidsbasis is er, maar de spreiding of afstemming kan beter.',
+    low: 'Er ontbreken essentiële vaardigheden. Inventariseer gaps en vul ze aan, intern of extern.',
+  },
+  lerend: {
+    high: 'Je organisatie leert snel, past zich aan en stimuleert innovatie. Een concurrentievoordeel op zich.',
+    mid: 'Het lerend vermogen is aanwezig maar inconsistent. Institutionaliseer leren als gewoonte.',
+    low: 'De organisatie leert weinig van ervaringen. Dit maakt strategie kwetsbaar voor herhaling van fouten.',
+  },
+};
+
+// ─── VERBETERPUNTEN op basis van antwoorden ───────────────────────────────────
+
+function getVerbeterpunten(sectionId, answers) {
+  const tips = [];
+
+  if (sectionId === 'strategie') {
+    if ((answers['1.1'] || 0) <= 1) tips.push('Formuleer een visie en missie die richting geeft en deel deze actief met je team. Toets te nemen besluiten gezamenlijk aan de missie en visie.');
+    if ((answers['1.2'] || 0) <= 3) tips.push('Versterk je strategische basis met een concrete marktanalyse of SWOT. Baseer je op feiten, niet op gevoel.');
+    if ((answers['1.3'] || 0) <= 3) tips.push('Maak scherpere keuzes: een goede strategie zegt altijd ook wat je niet doet.');
+    if ((answers['1.4'] || 0) <= 3) tips.push('Stop actief met activiteiten die niet bijdragen aan je strategie. Ruimte vrijmaken is groeien.');
+    if ((answers['1.5'] || 0) <= 1) tips.push('Definieer je doelgroep scherper, stem je aanbod daar consequent op af en valideer de waarde van je aanbod.');
+    if ((answers['1.6'] || 0) <= 1) tips.push('Maak je concurrentievoordeel concreet en toetsbaar. Laat klanten bevestigen waarom ze voor jou kiezen.');
+    if ((answers['1.7'] || 0) <= 1) tips.push('Bouw duurzaamheid in je voordeel in: wat maakt het moeilijk voor anderen om jou te kopiëren? Of versnel je innovatietempo.');
+    if (tips.length === 0) {
+      tips.push('Herevalueer je strategie jaarlijks en toets of de marktomstandigheden nog kloppen.');
+      tips.push('Betrek sleutelmensen actief bij de strategische herijking voor meer draagvlak en scherpere inzichten.');
+    }
+  }
+
+  if (sectionId === 'implementatieplan') {
+    if ((answers['2.1'] || 0) <= 3) tips.push('Breng capaciteitstekorten in kaart en maak een concreet plan om die op te lossen voor de uitvoering start.');
+    if ((answers['2.2'] || 0) <= 1) tips.push('Organiseer een stakeholderbijeenkomst om iedereen op één lijn te krijgen over koers en verwachtingen.');
+    if ((answers['2.3'] || 0) <= 3) tips.push('Maak het tijdspad realistischer door mijlpalen aan te passen en buffers in te bouwen voor onverwachte vertragingen.');
+    if ((answers['2.4'] || 0) <= 1) tips.push('Leg rollen en taken schriftelijk vast met naam en deadline. Voorkom dat verantwoordelijkheden blijven zweven.');
+    if ((answers['2.5'] || 0) <= 2) tips.push('Vertaal minstens 80% van je strategische doelen naar kwantitatieve KPI\'s. Alleen dan kun je bijsturen.');
+    if ((answers['2.6'] || 0) <= 2) tips.push('Implementeer een eenvoudig dashboard of maandelijkse review om targets actief te monitoren. Durf in te grijpen bij afwijkingen.');
+    if (tips.length === 0) {
+      tips.push('Voer kwartaalreviews in waarbij je plan en voortgang expliciet naast elkaar legt.');
+      tips.push('Koppel elk strategisch doel aan een eigenaar die wekelijks rapporteert over de voortgang.');
+    }
+  }
+
+  if (sectionId === 'belemmeringen') {
+    if ((answers['3.1'] || 0) >= 4) tips.push('Adresseer de historische patronen in je organisatie expliciet. Benoem ingebakken barrières (zoals "zo doen we dat hier niet") in teamgesprekken en maak ze bespreekbaar.');
+    if ((answers['3.2'] || 0) <= 3) tips.push('Communiceer concreet wat de nieuwe strategie betekent voor het dagelijks werk van medewerkers. Maak duidelijk wat er voor hen verandert.');
+    if ((answers['3.3'] || 0) <= 3) tips.push('Verminder de ervaren werkdruk bij de implementatie door deelstappen te versimpelen of te automatiseren.');
+    if ((answers['3.4'] || 0) <= 3) tips.push('Investeer in tooling of training die medewerkers helpt de strategie uit te voeren, niet symbolisch maar praktisch.');
+    if ((answers['3.5'] || 0) <= 3) tips.push('Geef als leiderschap zichtbaar het goede voorbeeld: consistentie tussen woord en daad is de krachtigste aanjager van draagvlak.');
+    if (tips.length === 0) {
+      tips.push('Blijf belemmeringen actief monitoren via periodieke teamgesprekken. Ze veranderen naarmate de uitvoering vordert.');
+      tips.push('Breng in kaart welke groepen nog twijfelen en wat ze nodig hebben om in beweging te komen.');
+    }
+  }
+
+  if (sectionId === 'opruimen') {
+    if ((answers['4.1'] || 0) <= 3) tips.push('Verken gerichte inhuur van interim-krachten of freelancers om tijdelijke capaciteitstekorten op te vangen.');
+    if ((answers['4.2'] || 0) >= 4) tips.push('Investeer in het middenmanagement: geef hen de tools en het mandaat om te verbinden, communiceren en motiveren. Maak ze je ambassadeurs.');
+    if ((answers['4.3'] || 0) <= 3) tips.push('Betrek medewerkers actief bij het oplossen van knelpunten. Zij zien de obstakels het dichtst van dichtbij.');
+    if ((answers['4.4'] || 0) >= 4) tips.push('Signalen van implementatiemoeheid vragen om een bewuste pauze: evalueer wat werkt en neem overbodige last weg.');
+    if ((answers['4.5'] || 0) <= 3) tips.push('Maak de volgorde van acties expliciet. Begin met de randvoorwaarden, zoals structuur en training, voor je de uitvoering opschroeft.');
+    if (tips.length === 0) {
+      tips.push('Maak belemmeringen opruimen een vast agendapunt in het MT, minimaal één keer per maand.');
+      tips.push('Definieer per kwartaal de top-3 obstakels en wijs een eigenaar aan die ze wegneemt.');
+    }
+  }
+
+  if (sectionId === 'vaardigheden') {
+    if ((answers['5.1'] || 0) <= 3) tips.push('Maak een vaardigheidsmatrix: welke competenties zijn cruciaal voor de strategie en waar zitten de gaps?');
+    if ((answers['5.2'] || 0) <= 3) tips.push('Zorg voor betere spreiding van kritieke vaardigheden. Voorkom afhankelijkheid van één of twee sleutelpersonen.');
+    if ((answers['5.3'] || 0) <= 1) tips.push('Stimuleer kruisbestuiving: laat teams vaker samenwerken zodat complementaire vaardigheden elkaar versterken.');
+    if ((answers['5.4'] || 0) <= 3) tips.push('Verbeter de samenwerking met gerichte interventies. Een cultuur van open feedback en gedeeld eigenaarschap helpt daarbij.');
+    if (tips.length === 0) {
+      tips.push('Evalueer jaarlijks of de vaardighedenmix nog past bij de strategie. De wereld verandert, jouw team moet mee.');
+      tips.push('Investeer in leer- en ontwikkelbudget dat direct gekoppeld is aan strategische prioriteiten.');
+    }
+  }
+
+  if (sectionId === 'lerend') {
+    if ((answers['6.1'] || 0) <= 3) tips.push('Introduceer gestructureerde terugbliksessies na elk project. Maak leren een vast onderdeel van de werkwijze.');
+    if ((answers['6.2'] || 0) <= 3) tips.push('Borg nieuwe kennis actief: zorg dat trainingen leiden tot aangepaste werkprocessen, niet alleen tot individuele inzichten.');
+    if ((answers['6.3'] || 0) >= 4) tips.push('Maak gedragsverandering concreet en klein: kleine aanpassingen in routines zijn makkelijker te beklijven dan grote omwentelingen.');
+    if ((answers['6.4'] || 0) <= 3) tips.push('Creëer ruimte voor experimenten. Wijs een klein budget toe aan experimenten en leer ook van de mislukkingen.');
+    if ((answers['6.5'] || 0) >= 4) tips.push('Kanaliseer ongeplande initiatieven: omarm de energie, maar koppel ze aan strategische prioriteiten om focus te houden.');
+    if ((answers['6.6'] || 0) <= 3) tips.push('Nodig tegenspraak expliciet uit. Stel in vergaderingen standaard de vraag wat je over het hoofd ziet om blinde vlekken te beperken.');
+    if (tips.length === 0) {
+      tips.push('Maak leren zichtbaar: deel wat de organisatie heeft geleerd in een maandelijkse nieuwsbrief of teamupdate.');
+      tips.push('Koppel leer- en innovatiedoelen direct aan de beoordelingscyclus. Wat beloond wordt, groeit.');
+    }
+  }
+
+  // Maximaal 3, altijd minimaal 2
+  return tips.slice(0, 3);
+}
+
+// ─── UTILITIES ───────────────────────────────────────────────────────────────
+
+function computeScores(answers) {
+  return SECTIONS.map(section => {
+    const vals = section.questions.map(q => answers[q.id]).filter(v => v !== undefined);
+    if (vals.length === 0) return { id: section.id, title: section.shortTitle, score: 0, pct: 0, color: section.color };
+    const avg = vals.reduce((a, b) => a + b, 0) / vals.length;
+    const pct = Math.round((avg / 7) * 100);
+    return { id: section.id, title: section.shortTitle, score: avg, pct, color: section.color };
+  });
+}
+
+function getScoreLabel(pct) {
+  if (pct >= 80) return { label: 'Sterk', color: '#2E7D32' };
+  if (pct >= 60) return { label: 'Goed', color: '#558B2F' };
+  if (pct >= 40) return { label: 'Aandacht gewenst', color: '#F7941D' };
+  if (pct >= 20) return { label: 'Zwak', color: '#C52339' };
+  return { label: 'Kritiek', color: '#8B0000' };
+}
+
+// ── Supabase configuratie ──────────────────────────────────────────────────
+const SUPABASE_URL  = 'https://nedxetebhieaqpvyrxcu.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5lZHhldGViaGllYXFwdnlyeGN1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4MjM0MDgsImV4cCI6MjA5NDM5OTQwOH0.HVTsyqgkDyX1xKJJ01S_45DiSdK6ElRm0BZfpcQcznY';
+
+// ── PDF genereren met jsPDF ────────────────────────────────────────────────────
+function generateRapportPdf(bedrijf, scores, totalPct, antwoorden, sbiInfo) {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+  const PW = 210; const PH = 297;
+  const ML = 14; const MR = 14; const CW = PW - ML - MR;
+  const dateStr = new Date().toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
+
+  // ── Kleur helpers ──
+  const hex = h => [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)];
+  const PURPLE = hex('3D2882'); const ORANGE = hex('F7941D'); const RED = hex('C52339');
+  const GREEN  = hex('2E7D32'); const AMBER  = hex('F5C23A'); const MID = hex('6B6B6B');
+  const LIGHT  = hex('E8E5F0'); const OFF    = hex('F4F3F0');
+
+  function setFill(c) { doc.setFillColor(c[0],c[1],c[2]); }
+  function setDraw(c) { doc.setDrawColor(c[0],c[1],c[2]); }
+  function setFont(c) { doc.setTextColor(c[0],c[1],c[2]); }
+  function labelColor(pct) {
+    if (pct >= 80) return GREEN; if (pct >= 60) return hex('558B2F');
+    if (pct >= 40) return ORANGE; if (pct >= 20) return RED;
+    return hex('8B0000');
+  }
+  function labelText(pct) {
+    if (pct >= 80) return 'STERK'; if (pct >= 60) return 'GOED';
+    if (pct >= 40) return 'AANDACHT GEWENST'; if (pct >= 20) return 'ZWAK';
+    return 'KRITIEK';
+  }
+
+  // ── Header band ──
+  setFill(PURPLE);
+  doc.rect(0, 0, PW, 22, 'F');
+  doc.setFont('helvetica','bold'); doc.setFontSize(14);
+  setFont([255,255,255]);
+  doc.text('STRATEGIESCAN — GESPREKSRAPPORT', ML, 9);
+  doc.setFont('helvetica','normal'); doc.setFontSize(8);
+  setFont([200,200,220]);
+  const headerRight = bedrijf.naam ? `${bedrijf.naam}  ·  ${dateStr}` : dateStr;
+  doc.text(headerRight, PW - MR, 9, { align: 'right' });
+  // Gradient strip
+  const gStops = [[hex('3D2882'),0],[hex('6B3194'),0.3],[hex('C52339'),0.65],[hex('F7941D'),1.0]];
+  const stripW = CW / (gStops.length - 1);
+  for (let i = 0; i < gStops.length - 1; i++) {
+    const [c1] = gStops[i]; setFill(c1);
+    doc.rect(ML + i * stripW, 19, stripW + 0.5, 3, 'F');
+  }
+
+  let y = 27;
+
+  // ── Bedrijfsinfo + totaalscore ──
+  doc.setFont('helvetica','normal'); doc.setFontSize(8); setFont(MID);
+  const infoLine = [
+    bedrijf.naam, bedrijf.kvk ? `KvK ${bedrijf.kvk}` : null,
+    bedrijf.email, sbiInfo ? `SBI ${sbiInfo.code} — ${sbiInfo.omschrijving}` : null
+  ].filter(Boolean).join('  ·  ');
+  doc.text(infoLine, ML, y); y += 5;
+
+  // Totaalscore pill
+  const tc = labelColor(totalPct);
+  setFill(tc); doc.roundedRect(ML, y, 34, 7, 2, 2, 'F');
+  doc.setFont('helvetica','bold'); doc.setFontSize(8); setFont([255,255,255]);
+  doc.text(`TOTAAL  ${totalPct}%  ${labelText(totalPct)}`, ML + 2, y + 4.8);
+  y += 11;
+
+  // ── Dimensies ──────────────────────────────────────────────────────────────
+  const DIM_COLORS = {
+    strategie: '3D2882', implementatieplan: '5A2B8A', belemmeringen: '8B2A7A',
+    opruimen: 'C52339', vaardigheden: 'E05C1A', lerend: 'F7941D'
+  };
+  const DIM_LABELS = {
+    strategie: 'Strategie', implementatieplan: 'Implementatieplan',
+    belemmeringen: 'Belemmeringen & barrières', opruimen: 'Opruimen belemmeringen',
+    vaardigheden: 'Vaardigheden', lerend: 'Lerende organisatie'
+  };
+  const SCALE_MAIN = [
+    {label:'Niet / geen',value:1},{label:'Een beetje',value:2},{label:'Enigszins',value:3},
+    {label:'Redelijk',value:4},{label:'Voldoende',value:5},{label:'Goed',value:6},{label:'Volledig',value:7}
+  ];
+  const SCALE_KWALITEIT  = [{label:'Matig',value:1},{label:'Zwak',value:2},{label:'Voldoende',value:3},{label:'Goed',value:5},{label:'Zeer goed',value:7}];
+  const SCALE_PROCENT    = [{label:'< 20%',value:1},{label:'< 40%',value:2},{label:'< 60%',value:3},{label:'< 80%',value:5},{label:'> 80%',value:7}];
+  const SCALE_JANEE      = [{label:'Ja',value:5},{label:'Nee',value:1}];
+  const SCALE_INTENSITEIT= [{label:'Niet / geen',value:1},{label:'Beperkt',value:2},{label:'Redelijk',value:3},{label:'Hoog',value:5},{label:'Zeer hoog',value:7}];
+  const SCALE_MATE       = [{label:'Niet',value:1},{label:'Nauwelijks',value:2},{label:'Beperkt',value:3},{label:'Vrij veel',value:5},{label:'Erg veel',value:7}];
+  const SCALE_REVERSED   = [{label:'Niet',value:7},{label:'Nauwelijks',value:5},{label:'Beperkt',value:3},{label:'Vrij veel',value:2},{label:'Erg veel',value:1}];
+
+  const SECTIONS_PDF = [
+    { id:'strategie', questions:[
+      {id:'1.1',text:'Visie en missie bekend bij medewerkers',scale:SCALE_JANEE},
+      {id:'1.2',text:'Strategisch plan onderbouwd met analyses',scale:SCALE_INTENSITEIT},
+      {id:'1.3',text:'Echte strategische keuzes gemaakt',scale:SCALE_MATE},
+      {id:'1.4',text:'Processen gestopt of verminderd',scale:SCALE_MATE},
+      {id:'1.5',text:'Duidelijke doelgroep met afgestemd aanbod'},
+      {id:'1.6',text:'Duidelijk concurrentievoordeel'},
+      {id:'1.7',text:'Voordeel duurzaam (min. 5 jaar)'},
+    ]},
+    { id:'implementatieplan', questions:[
+      {id:'2.1',text:'Voldoende capaciteit beschikbaar'},
+      {id:'2.2',text:'Alle belanghebbenden geïnformeerd'},
+      {id:'2.3',text:'Tijdspad realistisch'},
+      {id:'2.4',text:'Rollen en taken duidelijk belegd'},
+      {id:'2.5',text:'Doelen voorzien van kwantitatief target',scale:SCALE_PROCENT},
+      {id:'2.6',text:'Meet- en controlesysteem geïmplementeerd',scale:SCALE_PROCENT},
+    ]},
+    { id:'belemmeringen', questions:[
+      {id:'3.1',text:'Historie kan strategie tegenwerken',scale:SCALE_MATE},
+      {id:'3.2',text:'Medewerkers geloven dat strategie helpt'},
+      {id:'3.3',text:'Medewerkers vertrouwen op vereenvoudiging'},
+      {id:'3.4',text:'Voldoende organisatorische ondersteuning',scale:SCALE_MATE},
+      {id:'3.5',text:'Juist voorbeeldgedrag leidinggevenden'},
+    ]},
+    { id:'opruimen', questions:[
+      {id:'4.1',text:'Tijdelijke inhuur lost capaciteitstek. op'},
+      {id:'4.2',text:'Rol middenmanagement verbeteren',scale:SCALE_REVERSED},
+      {id:'4.3',text:'Strategie met input medewerkers gemaakt'},
+      {id:'4.4',text:'Signalen van implementatiemoeheid',scale:SCALE_REVERSED},
+      {id:'4.5',text:'Zekerheid over juiste volgorde acties'},
+    ]},
+    { id:'vaardigheden', questions:[
+      {id:'5.1',text:'Juiste vaardigheden aanwezig',scale:SCALE_INTENSITEIT},
+      {id:'5.2',text:'Vaardigheden goed verdeeld'},
+      {id:'5.3',text:'Vaardigheden complementair'},
+      {id:'5.4',text:'Oordeel over samenwerking',scale:SCALE_KWALITEIT},
+    ]},
+    { id:'lerend', questions:[
+      {id:'6.1',text:'Vermogen om aan te passen aan ervaringen',scale:SCALE_KWALITEIT},
+      {id:'6.2',text:'Nieuwe vaardigheden geborgd'},
+      {id:'6.3',text:'Hoe moeilijk is gedragsverandering',scale:SCALE_REVERSED},
+      {id:'6.4',text:'Innovatief vermogen',scale:SCALE_KWALITEIT},
+      {id:'6.5',text:'Ongeplande activiteiten',scale:SCALE_REVERSED},
+      {id:'6.6',text:'Ruimte voor tegenspraak',scale:SCALE_INTENSITEIT},
+    ]},
+  ];
+
+  function getAnswerLabel(qid, val, scale) {
+    if (val === undefined || val === null) return '—';
+    const sc = scale || SCALE_MAIN;
+    const opt = sc.find(o => o.value === val);
+    return opt ? opt.label : String(val);
+  }
+
+  // ── verbeterpunten lookup (same logic as getVerbeterpunten in app) ──
+  function dimVerbeterpunten(sectionId, ans) {
+    const tips = [];
+    if (sectionId === 'strategie') {
+      if ((ans['1.1']||0)<=1) tips.push('Formuleer een visie en missie die richting geeft en deel deze actief met je team. Toets te nemen besluiten gezamenlijk aan de missie en visie.');
+      if ((ans['1.2']||0)<=3) tips.push('Versterk je strategische basis met een concrete marktanalyse of SWOT. Baseer je op feiten, niet op gevoel.');
+      if ((ans['1.3']||0)<=3) tips.push('Maak scherpere keuzes: een goede strategie zegt altijd ook wat je niet doet.');
+      if ((ans['1.4']||0)<=3) tips.push('Stop actief met activiteiten die niet bijdragen aan je strategie. Ruimte vrijmaken is groeien.');
+      if ((ans['1.5']||0)<=1) tips.push('Definieer je doelgroep scherper, stem je aanbod daar consequent op af en valideer de waarde van je aanbod.');
+      if ((ans['1.6']||0)<=1) tips.push('Maak je concurrentievoordeel concreet en toetsbaar. Laat klanten bevestigen waarom ze voor jou kiezen.');
+      if ((ans['1.7']||0)<=1) tips.push('Bouw duurzaamheid in je voordeel in: wat maakt het moeilijk voor anderen om jou te kopiëren? Of versnel je innovatietempo.');
+      if (tips.length===0) { tips.push('Herevalueer je strategie jaarlijks en toets of de marktomstandigheden nog kloppen.'); tips.push('Betrek sleutelmensen actief bij de strategische herijking voor meer draagvlak en scherpere inzichten.'); }
+    }
+    if (sectionId === 'implementatieplan') {
+      if ((ans['2.1']||0)<=3) tips.push('Breng capaciteitstekorten in kaart en maak een concreet plan om die op te lossen voor de uitvoering start.');
+      if ((ans['2.2']||0)<=1) tips.push('Organiseer een stakeholderbijeenkomst om iedereen op één lijn te krijgen over koers en verwachtingen.');
+      if ((ans['2.3']||0)<=3) tips.push('Maak het tijdspad realistischer door mijlpalen aan te passen en buffers in te bouwen voor onverwachte vertragingen.');
+      if ((ans['2.4']||0)<=1) tips.push('Leg rollen en taken schriftelijk vast met naam en deadline. Voorkom dat verantwoordelijkheden blijven zweven.');
+      if ((ans['2.5']||0)<=2) tips.push("Vertaal minstens 80% van je strategische doelen naar kwantitatieve KPI's. Alleen dan kun je bijsturen.");
+      if ((ans['2.6']||0)<=2) tips.push('Implementeer een eenvoudig dashboard of maandelijkse review om targets actief te monitoren. Durf in te grijpen bij afwijkingen.');
+      if (tips.length===0) { tips.push('Voer kwartaalreviews in waarbij je plan en voortgang expliciet naast elkaar legt.'); tips.push('Koppel elk strategisch doel aan een eigenaar die wekelijks rapporteert over de voortgang.'); }
+    }
+    if (sectionId === 'belemmeringen') {
+      if ((ans['3.1']||0)>=4) tips.push('Adresseer de historische patronen in je organisatie expliciet. Benoem ingebakken barrières (zoals "zo doen we dat hier niet") in teamgesprekken en maak ze bespreekbaar.');
+      if ((ans['3.2']||0)<=3) tips.push('Communiceer concreet wat de nieuwe strategie betekent voor het dagelijks werk van medewerkers. Maak duidelijk wat er voor hen verandert.');
+      if ((ans['3.3']||0)<=3) tips.push('Verminder de ervaren werkdruk bij de implementatie door deelstappen te versimpelen of te automatiseren.');
+      if ((ans['3.4']||0)<=3) tips.push('Investeer in tooling of training die medewerkers helpt de strategie uit te voeren, niet symbolisch maar praktisch.');
+      if ((ans['3.5']||0)<=3) tips.push('Geef als leiderschap zichtbaar het goede voorbeeld: consistentie tussen woord en daad is de krachtigste aanjager van draagvlak.');
+      if (tips.length===0) { tips.push('Blijf belemmeringen actief monitoren via periodieke teamgesprekken. Ze veranderen naarmate de uitvoering vordert.'); tips.push('Breng in kaart welke groepen nog twijfelen en wat ze nodig hebben om in beweging te komen.'); }
+    }
+    if (sectionId === 'opruimen') {
+      if ((ans['4.1']||0)<=3) tips.push('Verken gerichte inhuur van interim-krachten of freelancers om tijdelijke capaciteitstekorten op te vangen.');
+      if ((ans['4.2']||0)>=4) tips.push('Investeer in het middenmanagement: geef hen de tools en het mandaat om te verbinden, communiceren en motiveren. Maak ze je ambassadeurs.');
+      if ((ans['4.3']||0)<=3) tips.push('Betrek medewerkers actief bij het oplossen van knelpunten. Zij zien de obstakels het dichtst van dichtbij.');
+      if ((ans['4.4']||0)>=4) tips.push('Signalen van implementatiemoeheid vragen om een bewuste pauze: evalueer wat werkt en neem overbodige last weg.');
+      if ((ans['4.5']||0)<=3) tips.push('Maak de volgorde van acties expliciet. Begin met de randvoorwaarden, zoals structuur en training, voor je de uitvoering opschroeft.');
+      if (tips.length===0) { tips.push('Maak belemmeringen opruimen een vast agendapunt in het MT, minimaal één keer per maand.'); tips.push('Definieer per kwartaal de top-3 obstakels en wijs een eigenaar aan die ze wegneemt.'); }
+    }
+    if (sectionId === 'vaardigheden') {
+      if ((ans['5.1']||0)<=3) tips.push('Maak een vaardigheidsmatrix: welke competenties zijn cruciaal voor de strategie en waar zitten de gaps?');
+      if ((ans['5.2']||0)<=3) tips.push('Zorg voor betere spreiding van kritieke vaardigheden. Voorkom afhankelijkheid van één of twee sleutelpersonen.');
+      if ((ans['5.3']||0)<=1) tips.push('Stimuleer kruisbestuiving: laat teams vaker samenwerken zodat complementaire vaardigheden elkaar versterken.');
+      if ((ans['5.4']||0)<=3) tips.push('Verbeter de samenwerking met gerichte interventies. Een cultuur van open feedback en gedeeld eigenaarschap helpt daarbij.');
+      if (tips.length===0) { tips.push('Evalueer jaarlijks of de vaardighedenmix nog past bij de strategie. De wereld verandert, jouw team moet mee.'); tips.push('Investeer in leer- en ontwikkelbudget dat direct gekoppeld is aan strategische prioriteiten.'); }
+    }
+    if (sectionId === 'lerend') {
+      if ((ans['6.1']||0)<=3) tips.push('Introduceer gestructureerde terugbliksessies na elk project. Maak leren een vast onderdeel van de werkwijze.');
+      if ((ans['6.2']||0)<=3) tips.push('Borg nieuwe kennis actief: zorg dat trainingen leiden tot aangepaste werkprocessen, niet alleen tot individuele inzichten.');
+      if ((ans['6.3']||0)>=4) tips.push('Maak gedragsverandering concreet en klein: kleine aanpassingen in routines zijn makkelijker te beklijven dan grote omwentelingen.');
+      if ((ans['6.4']||0)<=3) tips.push('Creëer ruimte voor experimenten. Wijs een klein budget toe aan experimenten en leer ook van de mislukkingen.');
+      if ((ans['6.5']||0)>=4) tips.push('Kanaliseer ongeplande initiatieven: omarm de energie, maar koppel ze aan strategische prioriteiten om focus te houden.');
+      if ((ans['6.6']||0)<=3) tips.push('Nodig tegenspraak expliciet uit. Stel in vergaderingen standaard de vraag wat je over het hoofd ziet om blinde vlekken te beperken.');
+      if (tips.length===0) { tips.push('Maak leren zichtbaar: deel wat de organisatie heeft geleerd in een maandelijkse nieuwsbrief of teamupdate.'); tips.push('Koppel leer- en innovatiedoelen direct aan de beoordelingscyclus. Wat beloond wordt, groeit.'); }
+    }
+    return tips.slice(0,3);
+  }
+
+  // ── Score delta for top-5 ranking ──
+  // Priority = distance below 60% (bigger gap = more urgent)
+  function getTop5(scores, antwoorden) {
+    const allTips = [];
+    scores.forEach(s => {
+      const tips = dimVerbeterpunten(s.id, antwoorden);
+      const urgency = Math.max(0, 60 - s.pct); // 0 for goed/sterk
+      tips.forEach((tip, i) => allTips.push({ tip, urgency: urgency - i * 0.1, dim: DIM_LABELS[s.id] }));
+    });
+    allTips.sort((a,b) => b.urgency - a.urgency);
+    return allTips.slice(0,5);
+  }
+
+  // ── Layout helpers ──
+  const LINE = 4.2; // line height mm
+  const FSML = 7;   // small font size
+  const FSN  = 7.5; // normal
+  const FSH  = 8.5; // heading
+
+  function checkPage(needed) {
+    if (y + needed > PH - 12) { doc.addPage(); y = 14; }
+  }
+
+  function drawDimHeader(s) {
+    const sc = scores.find(sc => sc.id === s.id);
+    const pct = sc ? sc.pct : 0;
+    const c = hex(DIM_COLORS[s.id]);
+    checkPage(10);
+    setFill(c);
+    doc.rect(ML, y, CW, 6.5, 'F');
+    doc.setFont('helvetica','bold'); doc.setFontSize(FSH); setFont([255,255,255]);
+    doc.text(DIM_LABELS[s.id].toUpperCase(), ML + 2, y + 4.4);
+    // score pill right
+    const lbl = labelText(pct);
+    doc.text(`${pct}%  ${lbl}`, ML + CW - 2, y + 4.4, { align:'right' });
+    y += 7.5;
+  }
+
+  function drawAnswerRow(q, scale) {
+    const val = antwoorden[q.id];
+    const lbl = getAnswerLabel(q.id, val, scale);
+    checkPage(LINE + 1);
+    doc.setFont('helvetica','normal'); doc.setFontSize(FSML); setFont(MID);
+    doc.text(q.id, ML + 1, y);
+    setFont([30,30,30]);
+    doc.text(q.text, ML + 9, y);
+    doc.setFont('helvetica','bold');
+    setFont(val <= 2 ? RED : val >= 5 ? hex('2E7D32') : [80,80,80]);
+    doc.text(lbl, ML + CW, y, { align:'right' });
+    setDraw(LIGHT); doc.setLineWidth(0.1);
+    doc.line(ML, y + 1, ML + CW, y + 1);
+    y += LINE;
+  }
+
+  function drawVerbeterpunten(tips) {
+    if (!tips || tips.length === 0) return;
+    checkPage(4 + tips.length * (LINE + 0.5));
+    setFill(OFF); doc.rect(ML, y, CW, 3, 'F');
+    doc.setFont('helvetica','bold'); doc.setFontSize(FSML); setFont(MID);
+    doc.text('VERBETERPUNTEN', ML + 2, y + 2);
+    y += 4;
+    tips.forEach(tip => {
+      const lines = doc.splitTextToSize('• ' + tip, CW - 4);
+      checkPage(lines.length * LINE);
+      doc.setFont('helvetica','normal'); doc.setFontSize(FSML); setFont([30,30,30]);
+      doc.text(lines, ML + 2, y);
+      y += lines.length * LINE + 0.8;
+    });
+    y += 1;
+  }
+
+  // ── Render each dimension ──
+  SECTIONS_PDF.forEach(sec => {
+    drawDimHeader(sec);
+    sec.questions.forEach(q => drawAnswerRow(q, q.scale));
+    const tips = dimVerbeterpunten(sec.id, antwoorden);
+    drawVerbeterpunten(tips);
+    y += 3;
+  });
+
+  // ── Top 5 verbeterpunten ────────────────────────────────────────────────────
+  checkPage(30);
+  // Header bar
+  setFill(PURPLE);
+  doc.rect(ML, y, CW, 7, 'F');
+  doc.setFont('helvetica','bold'); doc.setFontSize(9); setFont([255,255,255]);
+  doc.text('TOP 5 MEEST URGENTE VERBETERPUNTEN', ML + 2, y + 4.8);
+  y += 9;
+
+  const top5 = getTop5(scores, antwoorden);
+  top5.forEach((item, i) => {
+    checkPage(LINE * 3);
+    const lines = doc.splitTextToSize(`${i+1}.  ${item.tip}`, CW - 20);
+    setFill(i % 2 === 0 ? [245,243,255] : [255,255,255]);
+    doc.rect(ML, y - 1, CW, lines.length * LINE + 2.5, 'F');
+    doc.setFont('helvetica','bold'); doc.setFontSize(FSML);
+    setFont(PURPLE);
+    doc.text(`${i+1}`, ML + 2, y + LINE - 1);
+    doc.setFont('helvetica','normal'); setFont([30,30,30]);
+    doc.text(lines, ML + 7, y + LINE - 1);
+    doc.setFont('helvetica','italic'); doc.setFontSize(FSML - 0.5); setFont(MID);
+    doc.text(item.dim, ML + CW, y + lines.length * LINE + 0.5, { align:'right' });
+    y += lines.length * LINE + 4;
+  });
+
+  // ── Footer ──
+  const pageCount = doc.getNumberOfPages();
+  for (let i = 1; i <= pageCount; i++) {
+    doc.setPage(i);
+    setFill(PURPLE);
+    doc.rect(0, PH - 8, PW, 8, 'F');
+    doc.setFont('helvetica','normal'); doc.setFontSize(6.5); setFont([180,180,210]);
+    doc.text('Strategieboost  ·  strategieboost.nl  ·  Dit rapport is vertrouwelijk en bedoeld voor intern gebruik', ML, PH - 3.5);
+    doc.text(`${i} / ${pageCount}`, PW - MR, PH - 3.5, { align:'right' });
+  }
+
+  return doc.output('datauristring').split(',')[1]; // base64
+}
+
+// ── Scan opslaan in Supabase ───────────────────────────────────────────────────
+async function saveToBenchmark(bedrijf, scores, totalPct, antwoorden, sbiInfo) {
+  try {
+    // Stap 1: genereer PDF als binary blob
+    let pdfBlob = null;
+    let pdfUrl  = null;
+    try {
+      const { jsPDF } = window.jspdf;
+      // generateRapportPdf geeft base64 terug — omzetten naar Blob voor Storage upload
+      const b64 = generateRapportPdf(bedrijf, scores, totalPct, antwoorden, sbiInfo);
+      const binary = atob(b64);
+      const bytes  = new Uint8Array(binary.length);
+      for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+      pdfBlob = new Blob([bytes], { type: 'application/pdf' });
+      console.log('[PDF] ✅ Gegenereerd, grootte:', Math.round(pdfBlob.size / 1024) + ' KB');
+    } catch (pdfErr) {
+      console.error('[PDF] ❌ Generatiefout:', pdfErr.message);
+    }
+
+    // Stap 2: upload PDF naar Supabase Storage bucket 'rapporten'
+    if (pdfBlob) {
+      try {
+        const ts       = Date.now();
+        const safeName = (bedrijf.naam || 'scan').replace(/[^a-z0-9]/gi, '_').slice(0, 40);
+        const path     = `${safeName}_${ts}.pdf`;
+
+        const uploadRes = await fetch(
+          `${SUPABASE_URL}/storage/v1/object/rapporten/${path}`,
+          {
+            method: 'POST',
+            headers: {
+              'apikey':         SUPABASE_ANON,
+              'Authorization':  `Bearer ${SUPABASE_ANON}`,
+              'Content-Type':   'application/pdf',
+              'x-upsert':       'false',
+            },
+            body: pdfBlob,
+          }
+        );
+
+        if (uploadRes.ok) {
+          pdfUrl = `${SUPABASE_URL}/storage/v1/object/public/rapporten/${path}`;
+          console.log('[Storage] ✅ PDF geüpload:', pdfUrl);
+        } else {
+          const err = await uploadRes.text();
+          console.error('[Storage] ❌ Upload mislukt', uploadRes.status, ':', err);
+        }
+      } catch (storageErr) {
+        console.error('[Storage] ❌ Fout:', storageErr.message);
+      }
+    }
+
+    // Stap 3: scandata + PDF-URL opslaan in één INSERT
+    const payload = {
+      bedrijf_naam:        bedrijf.naam   || null,
+      kvk_nummer:          bedrijf.kvk    || null,
+      email:               bedrijf.email  || null,
+      sbi_code:            sbiInfo?.code         || null,
+      sbi_omschrijving:    sbiInfo?.omschrijving  || null,
+      totaal_pct:          totalPct,
+      score_strategie:     scores.find(s => s.id === 'strategie')?.pct    ?? null,
+      score_implementatie: scores.find(s => s.id === 'implementatieplan')?.pct ?? null,
+      score_belemmeringen: scores.find(s => s.id === 'belemmeringen')?.pct ?? null,
+      score_opruimen:      scores.find(s => s.id === 'opruimen')?.pct      ?? null,
+      score_vaardigheden:  scores.find(s => s.id === 'vaardigheden')?.pct  ?? null,
+      score_lerende_org:   scores.find(s => s.id === 'lerend')?.pct        ?? null,
+      antwoorden:          antwoorden || null,
+      rapport_pdf:         pdfUrl,
+    };
+
+    console.log('[Supabase] Opslaan gestart:', payload.bedrijf_naam, payload.totaal_pct + '%');
+
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/scan_resultaten`, {
+      method: 'POST',
+      headers: {
+        'apikey':        SUPABASE_ANON,
+        'Authorization': `Bearer ${SUPABASE_ANON}`,
+        'Content-Type':  'application/json',
+        'Prefer':        'return=minimal',
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (res.ok) {
+      console.log('[Supabase] ✅ Opgeslagen' + (pdfUrl ? ' inclusief PDF-link' : '') + ' (status', res.status + ')');
+    } else {
+      const err = await res.text();
+      console.error('[Supabase] ❌ Fout', res.status, ':', err);
+    }
+
+  } catch (e) {
+    console.error('[Supabase] ❌ Netwerkfout:', e.message);
+  }
+}
+
+// ─── RADAR CHART ─────────────────────────────────────────────────────────────
+
+function RadarChart({ scores, size = 300 }) {
+  const cx = size / 2, cy = size / 2, R = size * 0.36;
+  const n = scores.length;
+  const angleOf = i => (Math.PI * 2 * i / n) - Math.PI / 2;
+  const ptOf = (i, r) => ({ x: cx + r * Math.cos(angleOf(i)), y: cy + r * Math.sin(angleOf(i)) });
+  const rings = [0.2, 0.4, 0.6, 0.8, 1.0];
+  const dataPoints = scores.map((s, i) => ptOf(i, R * (s.pct / 100)));
+  const dataPath = dataPoints.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' ') + ' Z';
+
+  return (
+    <svg viewBox={`0 0 ${size} ${size}`} width={size} height={size} style={{overflow:'visible'}}>
+      {rings.map((r, ri) => {
+        const pts = scores.map((_, i) => ptOf(i, R * r));
+        const path = pts.map((p, i) => `${i===0?'M':'L'} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' ') + ' Z';
+        return <path key={ri} d={path} fill="none" stroke="#ddd" strokeWidth={ri === rings.length-1 ? 1.5 : 1} />;
+      })}
+      {scores.map((_, i) => {
+        const end = ptOf(i, R);
+        return <line key={i} x1={cx} y1={cy} x2={end.x.toFixed(1)} y2={end.y.toFixed(1)} stroke="#ddd" strokeWidth="1" />;
+      })}
+      <path d={dataPath} fill="rgba(61,40,130,0.15)" stroke="var(--sb-purple)" strokeWidth="2.5" />
+      {dataPoints.map((p, i) => (
+        <circle key={i} cx={p.x.toFixed(1)} cy={p.y.toFixed(1)} r="5" fill="var(--sb-purple)" stroke="white" strokeWidth="2" />
+      ))}
+      {scores.map((s, i) => {
+        const angle = angleOf(i);
+        const labelR = R + 34;
+        const lx = cx + labelR * Math.cos(angle);
+        const ly = cy + labelR * Math.sin(angle);
+        const anchor = Math.abs(Math.cos(angle)) < 0.1 ? 'middle' : Math.cos(angle) > 0 ? 'start' : 'end';
+        const dy = Math.sin(angle) > 0.1 ? '1em' : Math.sin(angle) < -0.1 ? '-0.3em' : '0.35em';
+        return (
+          <text key={i} x={lx.toFixed(1)} y={ly.toFixed(1)} textAnchor={anchor} dy={dy}
+            style={{fontSize:'10px', fontFamily:'var(--font-body)', fontWeight:700, fill:'var(--sb-black)'}}>
+            {s.title}
+          </text>
+        );
+      })}
+      {[20,40,60,80,100].map((pct, ri) => {
+        const pt = ptOf(0, R * (pct/100));
+        return (
+          <text key={ri} x={(pt.x+4).toFixed(1)} y={pt.y.toFixed(1)} dy="0.35em"
+            style={{fontSize:'8px', fill:'#aaa', fontFamily:'var(--font-body)'}}>
+            {pct}%
+          </text>
+        );
+      })}
+    </svg>
+  );
+}
+
+// ─── PROGRESS BAR ────────────────────────────────────────────────────────────
+
+function ProgressBar({ current, total }) {
+  return (
+    <div style={{width:'100%', height:4, background:'rgba(255,255,255,0.2)', borderRadius:2}}>
+      <div style={{
+        width:`${(current/total)*100}%`, height:'100%',
+        background:'var(--sb-gradient-warm)', borderRadius:2, transition:'width 0.4s ease',
+      }} />
+    </div>
+  );
+}
+
+// ─── OPTION BUTTON ───────────────────────────────────────────────────────────
+
+function OptionButton({ option, selected, onClick, color }) {
+  const baseColor = color || 'var(--sb-purple)';
+  return (
+    <button
+      onClick={() => onClick(option.value)}
+      style={{
+        padding: '8px 13px',
+        border: selected ? `2px solid ${baseColor}` : '2px solid #E0DDF0',
+        borderRadius: 7,
+        background: selected ? baseColor : 'white',
+        color: selected ? 'white' : 'var(--sb-black)',
+        fontFamily: 'var(--font-body)',
+        fontSize: 13,
+        fontWeight: selected ? 700 : 400,
+        cursor: 'pointer',
+        transition: 'all 0.12s ease',
+        whiteSpace: 'nowrap',
+        flexShrink: 0,
+      }}
+      onMouseEnter={e => { if (!selected) { e.currentTarget.style.borderColor = baseColor; e.currentTarget.style.background = '#F0EDF8'; }}}
+      onMouseLeave={e => { if (!selected) { e.currentTarget.style.borderColor = '#E0DDF0'; e.currentTarget.style.background = 'white'; }}}
+    >
+      {option.label}
+    </button>
+  );
+}
+
+// ─── INTRO SCREEN ────────────────────────────────────────────────────────────
+
+function IntroScreen({ onStart, bedrijf, setBedrijf }) {
+  const [errors, setErrors] = useState({});
+  const [kvkStatus, setKvkStatus] = useState('idle'); // idle | checking | ok | error
+  const [sbiInfo, setSbiInfo] = useState(null);
+
+  const validate = () => {
+    const e = {};
+    if (!bedrijf.naam || !bedrijf.naam.trim()) e.naam = 'Vul je bedrijfsnaam in';
+    if (!bedrijf.kvk || !bedrijf.kvk.trim()) e.kvk = 'Vul je KvK nummer in';
+    else if (!/^\d{8}$/.test(bedrijf.kvk.trim())) e.kvk = 'KvK nummer bestaat uit 8 cijfers';
+    if (!bedrijf.email || !bedrijf.email.trim()) e.email = 'Vul je e-mailadres in';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(bedrijf.email)) e.email = 'Vul een geldig e-mailadres in';
+    return e;
+  };
+
+  const checkKvk = async (kvk) => {
+    if (!/^\d{8}$/.test(kvk.trim())) return;
+    setKvkStatus('checking');
+    try {
+      // KVK API: vervang 'l7xxdummy' door jouw echte sleutel via developers.kvk.nl
+      const res = await fetch(
+        `https://api.kvk.nl/api/v1/basisprofielen/${kvk.trim()}`,
+        { headers: { 'apikey': 'l7xxdummy' } }
+      );
+      if (res.ok) {
+        const data = await res.json();
+        const sbi = data?.sbiActiviteiten?.[0];
+        if (sbi) setSbiInfo({ code: sbi.sbiCode, omschrijving: sbi.omschrijving });
+        if (!bedrijf.naam && data?.naam) setBedrijf(b => ({ ...b, naam: data.naam }));
+      }
+    } catch (_) {}
+    setKvkStatus('ok');
+  };
+
+  const handleStart = () => {
+    const e = validate();
+    if (Object.keys(e).length > 0) { setErrors(e); return; }
+    setErrors({});
+    onStart(sbiInfo);
+  };
+
+  return (
+    <div style={{
+      minHeight: '100vh', background: 'var(--sb-purple)',
+      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+      padding: '40px 24px', position: 'relative', overflow: 'hidden',
+    }}>
+      <img src="assets/brand-elements.png" alt="" aria-hidden="true" style={{position:'absolute',right:-80,top:-80,width:400,opacity:0.15,pointerEvents:'none'}} />
+      <img src="assets/speed-lines.png" alt="" aria-hidden="true" style={{position:'absolute',left:0,bottom:40,width:320,opacity:0.1,pointerEvents:'none'}} />
+
+      <div style={{maxWidth:580, width:'100%', position:'relative', zIndex:1}}>
+        <img src="logo-diap.png" alt="Strategieboost" style={{height:64, marginBottom:48}} />
+
+        <div style={{fontFamily:'var(--font-display)',fontSize:'clamp(42px,7vw,72px)',color:'white',lineHeight:1.0,letterSpacing:'0.05em',textTransform:'uppercase',marginBottom:8}}>
+          STRATEGIE
+        </div>
+        <div style={{fontFamily:'var(--font-display)',fontSize:'clamp(42px,7vw,72px)',background:'linear-gradient(90deg,#F5C23A,#F7941D)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text',lineHeight:1.0,letterSpacing:'0.05em',textTransform:'uppercase',marginBottom:32}}>
+          SCAN
+        </div>
+
+        <p style={{color:'rgba(255,255,255,0.85)',fontSize:17,lineHeight:1.7,marginBottom:40,fontFamily:'var(--font-body)'}}>
+          Krijg binnen 20 minuten inzicht in de strategische kracht van jouw organisatie. Eerlijk, onderbouwd en zonder omwegen. Beantwoord de vragen en ontvang direct je persoonlijke strategieprofiel.
+        </p>
+
+        <div style={{background:'rgba(255,255,255,0.08)',borderRadius:12,padding:'28px 32px',marginBottom:36,border:'1px solid rgba(255,255,255,0.15)'}}>
+          <div style={{fontFamily:'var(--font-body)',fontSize:11,fontWeight:700,letterSpacing:'0.15em',textTransform:'uppercase',color:'var(--sb-amber)',marginBottom:20}}>
+            Jouw gegevens
+          </div>
+
+          <div style={{display:'flex',flexDirection:'column',gap:14}}>
+            {[
+              { key:'naam', label:'Naam van je bedrijf *', placeholder:'Bijv. Acme B.V.', type:'text' },
+              { key:'kvk',  label:'KvK nummer *',          placeholder:'8 cijfers',        type:'text', inputMode:'numeric' },
+              { key:'email',label:'E-mailadres *',          placeholder:'Bijv. info@jouwbedrijf.nl', type:'email' },
+            ].map(field => (
+              <div key={field.key}>
+                <label style={{display:'block',fontFamily:'var(--font-body)',fontSize:12,fontWeight:700,color:errors[field.key]?'#F5C23A':'rgba(255,255,255,0.6)',marginBottom:6,letterSpacing:'0.05em',textTransform:'uppercase'}}>
+                  {field.label}
+                </label>
+                <div style={{position:'relative'}}>
+                  <input
+                    type={field.type}
+                    inputMode={field.inputMode || 'text'}
+                    value={bedrijf[field.key] || ''}
+                    onChange={e => {
+                      const val = e.target.value;
+                      setBedrijf(prev => ({ ...prev, [field.key]: val }));
+                      if (errors[field.key]) setErrors(prev => ({ ...prev, [field.key]: null }));
+                      if (field.key === 'kvk' && /^\d{8}$/.test(val.trim())) checkKvk(val);
+                    }}
+                    placeholder={field.placeholder}
+                    style={{width:'100%',padding:'10px 14px',background:errors[field.key]?'rgba(245,194,58,0.12)':'rgba(255,255,255,0.12)',border:errors[field.key]?'1px solid #F5C23A':'1px solid rgba(255,255,255,0.25)',borderRadius:6,color:'white',fontFamily:'var(--font-body)',fontSize:15,outline:'none'}}
+                  />
+                  {field.key === 'kvk' && kvkStatus === 'checking' && (
+                    <span style={{position:'absolute',right:10,top:'50%',transform:'translateY(-50%)',color:'rgba(255,255,255,0.5)',fontSize:12}}>⏳</span>
+                  )}
+                  {field.key === 'kvk' && kvkStatus === 'ok' && bedrijf.kvk && /^\d{8}$/.test(bedrijf.kvk.trim()) && (
+                    <span style={{position:'absolute',right:10,top:'50%',transform:'translateY(-50%)',color:'#F5C23A',fontSize:14}}>✓</span>
+                  )}
+                </div>
+                {errors[field.key] && (
+                  <div style={{fontFamily:'var(--font-body)',fontSize:12,color:'#F5C23A',marginTop:4}}>{errors[field.key]}</div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <button
+          onClick={handleStart}
+          style={{width:'100%',padding:'16px 32px',background:'linear-gradient(90deg,#F5C23A,#F7941D)',border:'none',borderRadius:8,color:'white',fontFamily:'var(--font-display)',fontSize:22,letterSpacing:'0.1em',cursor:'pointer',transition:'transform 0.1s ease, opacity 0.15s ease'}}
+          onMouseEnter={e => e.currentTarget.style.opacity='0.9'}
+          onMouseLeave={e => e.currentTarget.style.opacity='1'}
+          onMouseDown={e => e.currentTarget.style.transform='scale(0.98)'}
+          onMouseUp={e => e.currentTarget.style.transform='scale(1)'}
+        >
+          START DE SCAN
+        </button>
+
+        <p style={{color:'rgba(255,255,255,0.4)',fontSize:12,textAlign:'center',marginTop:16,fontFamily:'var(--font-body)'}}>
+          6 thema's · 34 vragen · ~15 minuten
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ─── QUESTION SCREEN ─────────────────────────────────────────────────────────
+
+function QuestionScreen({ section, sectionIndex, totalSections, answers, onAnswer, onNext, onBack }) {
+  if (!section) return null;
+  const answered = section.questions.filter(q => answers[q.id] !== undefined).length;
+  const allAnswered = answered === section.questions.length;
+
+  return (
+    <div style={{minHeight:'100vh',display:'flex',flexDirection:'column',background:'var(--sb-off-white)'}}>
+      {/* Header */}
+      <div style={{background:section.color,padding:'20px 24px 24px',position:'sticky',top:0,zIndex:10}}>
+        <div style={{maxWidth:780,margin:'0 auto'}}>
+          <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:12}}>
+            <img src="logo-diap.png" alt="Strategieboost" style={{height:32}} />
+            <span style={{fontFamily:'var(--font-body)',fontSize:12,color:'rgba(255,255,255,0.7)',fontWeight:600}}>
+              Thema {sectionIndex+1} van {totalSections}
+            </span>
+          </div>
+          <ProgressBar current={sectionIndex + (allAnswered ? 1 : 0)} total={totalSections} />
+          <div style={{fontFamily:'var(--font-display)',fontSize:26,color:'white',letterSpacing:'0.05em',textTransform:'uppercase',marginTop:14,lineHeight:1.1}}>
+            {section.title}
+          </div>
+          <div style={{color:'rgba(255,255,255,0.75)',fontSize:14,fontFamily:'var(--font-body)',marginTop:4}}>
+            {section.intro}
+          </div>
+        </div>
+      </div>
+
+      {/* Questions */}
+      <div style={{flex:1,padding:'28px 24px 120px',maxWidth:780,width:'100%',margin:'0 auto'}}>
+        {section.questions.map((q) => {
+          const scale = q.scale || SCALE_MAIN;
+          const selected = answers[q.id];
+          return (
+            <div key={q.id} style={{
+              background:'white', borderRadius:12, padding:'20px 24px', marginBottom:14,
+              boxShadow:'0 2px 8px rgba(61,40,130,0.07)',
+              borderLeft: selected !== undefined ? `4px solid ${section.color}` : '4px solid #E0DDF0',
+              transition:'border-color 0.2s',
+            }}>
+              <div style={{display:'flex',gap:12,alignItems:'flex-start',marginBottom:14}}>
+                <span style={{
+                  background: selected !== undefined ? section.color : '#E0DDF0',
+                  color: selected !== undefined ? 'white' : 'var(--sb-mid)',
+                  borderRadius:'50%', width:26, height:26,
+                  display:'flex', alignItems:'center', justifyContent:'center',
+                  fontSize:11, fontWeight:700, flexShrink:0,
+                  fontFamily:'var(--font-body)', transition:'background 0.2s',
+                }}>
+                  {q.id}
+                </span>
+                <p style={{fontFamily:'var(--font-body)',fontSize:15,lineHeight:1.5,color:'var(--sb-black)',margin:0}}>
+                  {q.text}
+                </p>
+              </div>
+              {/* Options: single row, no wrap, scrollable if needed */}
+              <div className="options-row" style={{
+                display:'flex', flexWrap:'nowrap', gap:6,
+                overflowX:'auto', paddingBottom:4,
+                msOverflowStyle:'none', scrollbarWidth:'thin',
+              }}>
+                {scale.map(opt => (
+                  <OptionButton key={opt.value} option={opt} selected={selected===opt.value}
+                    onClick={val => onAnswer(q.id, val)} color={section.color} />
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Bottom nav */}
+      <div className="no-print" style={{
+        position:'fixed',bottom:0,left:0,right:0,background:'white',
+        borderTop:'1px solid #E8E5F0',padding:'14px 24px',
+        display:'flex',justifyContent:'center',zIndex:20,
+        boxShadow:'0 -4px 16px rgba(61,40,130,0.08)',
+      }}>
+        <div style={{maxWidth:780,width:'100%',display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+          <button onClick={onBack} style={{padding:'10px 22px',background:'transparent',border:'2px solid #E0DDF0',borderRadius:8,color:'var(--sb-mid)',fontFamily:'var(--font-body)',fontSize:14,fontWeight:700,cursor:'pointer'}}>
+            ← Terug
+          </button>
+          <span style={{fontSize:13,color:'var(--sb-mid)',fontFamily:'var(--font-body)'}}>
+            {answered}/{section.questions.length} beantwoord
+          </span>
+          <button
+            onClick={onNext} disabled={!allAnswered}
+            style={{padding:'10px 26px',background:allAnswered?section.color:'#E0DDF0',border:'none',borderRadius:8,color:'white',fontFamily:'var(--font-display)',fontSize:17,letterSpacing:'0.05em',cursor:allAnswered?'pointer':'not-allowed',opacity:allAnswered?1:0.6,transition:'background 0.2s,opacity 0.2s'}}
+          >
+            {sectionIndex < totalSections-1 ? 'VOLGENDE →' : 'BEKIJK RESULTATEN →'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── RESULTS SCREEN ───────────────────────────────────────────────────────────
+
+function ResultsScreen({ scores, bedrijf, answers, sbiInfo, onReset }) {
+  const totalPct = Math.round(scores.reduce((a,s) => a+s.pct, 0) / scores.length);
+  const overallLabel = getScoreLabel(totalPct);
+  const dateStr = new Date().toLocaleDateString('nl-NL', {day:'numeric',month:'long',year:'numeric'});
+  const resultsRef = useRef(null);
+  const summaryRef = useRef(null);
+
+  // ── Opslaan in Supabase bij laden resultaatpagina ───────────────────────
+  useEffect(() => {
+    saveToBenchmark(bedrijf, scores, totalPct, answers, sbiInfo);
+  }, []);
+
+
+  const [companyLogo, setCompanyLogo] = useState({ url: null, ready: false, tried: false });
+
+  useEffect(() => {
+    if (!bedrijf.naam) return;
+    let cancelled = false;
+    setCompanyLogo({ url: null, ready: false, tried: false });
+
+    // Schoon de bedrijfsnaam op voor domeingebruik
+    const cleanName = bedrijf.naam
+      .toLowerCase()
+      .replace(/\s+(b\.?v\.?|n\.?v\.?|bv|nv|holding|group|groep)\s*$/gi, '')
+      .trim()
+      .replace(/[^a-z0-9]/g, '');
+
+    const TOKEN = 'pk_TCeOWUJ5RHGo1Bkz5jxFng';
+    const sources = [
+      `https://img.logo.dev/${cleanName}.nl?token=${TOKEN}&size=128`,
+      `https://img.logo.dev/${cleanName}.com?token=${TOKEN}&size=128`,
+      `https://logo.clearbit.com/${cleanName}.nl?size=128`,
+      `https://logo.clearbit.com/${cleanName}.com?size=128`,
+    ];
+
+    const trySource = (i) => {
+      if (i >= sources.length || cancelled) {
+        if (!cancelled) setCompanyLogo({ url: null, ready: false, tried: true });
+        return;
+      }
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => {
+        if (cancelled) return;
+        // logo.dev geeft 1x1 pixel terug als er geen logo is
+        if (img.naturalWidth <= 2 || img.naturalHeight <= 2) { trySource(i + 1); return; }
+        setCompanyLogo({ url: sources[i], ready: true, tried: true });
+      };
+      img.onerror = () => { if (!cancelled) trySource(i + 1); };
+      img.src = sources[i];
+    };
+
+    trySource(0);
+    return () => { cancelled = true; };
+  }, [bedrijf.naam]);
+
+  // Initialen als fallback
+  const companyInitials = bedrijf.naam
+    ? bedrijf.naam.trim().split(/\s+/).slice(0,2).map(w => w[0]?.toUpperCase()).join('')
+    : '?';
+
+  // Save benchmark on mount — fully fire-and-forget, never crashes the component
+
+
+  const handlePrint = useCallback(() => { window.print(); }, []);
+
+
+
+  return (
+    <div ref={resultsRef} className="results-page" style={{minHeight:'100dvh',background:'var(--sb-off-white)',paddingBottom:'calc(100px + env(safe-area-inset-bottom))'}}>
+
+      {/* Header */}
+      <div style={{background:'var(--sb-purple)',padding:'32px 24px 40px',position:'relative',overflow:'hidden'}}>
+        <img src="assets/brand-elements.png" alt="" aria-hidden="true" style={{position:'absolute',right:-60,top:-60,width:300,opacity:0.1,pointerEvents:'none'}} />
+        <div style={{maxWidth:800,margin:'0 auto',position:'relative',zIndex:1}}>
+          <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',flexWrap:'wrap',gap:16}}>
+            <div>
+              {/* Larger logo: 40% bigger than previous 40px = 56px */}
+              <img src="logo-diap.png" alt="Strategieboost" style={{height:56,marginBottom:20}} />
+              <div style={{fontFamily:'var(--font-display)',fontSize:'clamp(28px,4vw,46px)',color:'white',textTransform:'uppercase',letterSpacing:'0.05em',lineHeight:1}}>
+                JOUW STRATEGIEPROFIEL
+              </div>
+              <div style={{display:'flex',alignItems:'center',gap:12,marginTop:10,flexWrap:'wrap'}}>
+                {/* Bedrijfslogo + naam */}
+                <div style={{display:'flex',alignItems:'center',gap:12,flexWrap:'wrap',marginTop:6}}>
+                  {/* Logo of initialen-avatar */}
+                  <div style={{
+                    width:56, height:56, borderRadius:10, overflow:'hidden', flexShrink:0,
+                    background:'white', display:'flex', alignItems:'center', justifyContent:'center',
+                    boxShadow:'0 2px 8px rgba(0,0,0,0.18)',
+                  }}>
+                    {companyLogo.ready ? (
+                      <img src={companyLogo.url} alt={bedrijf.naam}
+                        style={{width:'100%',height:'100%',objectFit:'contain',padding:4}} />
+                    ) : (
+                      <span style={{
+                        fontFamily:'var(--font-display)', fontSize:20, letterSpacing:'0.05em',
+                        color:'var(--sb-purple)', lineHeight:1,
+                      }}>{companyInitials}</span>
+                    )}
+                  </div>
+                  {/* Naam + KvK */}
+                  {bedrijf.naam && (
+                    <div>
+                      <div style={{fontFamily:'var(--font-body)',fontSize:16,fontWeight:700,color:'white',lineHeight:1.2}}>
+                        {bedrijf.naam}
+                      </div>
+                      <div style={{fontFamily:'var(--font-body)',fontSize:13,color:'rgba(255,255,255,0.6)',marginTop:3}}>
+                        {bedrijf.kvk ? `KvK ${bedrijf.kvk} · ` : ''}{dateStr}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+            {/* Total score — clearly labelled */}
+            <div style={{textAlign:'right',minWidth:130}}>
+              <div style={{fontFamily:'var(--font-body)',fontSize:11,fontWeight:700,color:'rgba(255,255,255,0.5)',letterSpacing:'0.15em',textTransform:'uppercase',marginBottom:4}}>
+                TOTAALSCORE
+              </div>
+              <div style={{fontFamily:'var(--font-display)',fontSize:'clamp(52px,8vw,80px)',color:'white',lineHeight:1,letterSpacing:'0.02em'}}>
+                {totalPct}%
+              </div>
+              <div style={{display:'inline-block',background:overallLabel.color,color:'white',fontFamily:'var(--font-body)',fontSize:12,fontWeight:700,letterSpacing:'0.1em',textTransform:'uppercase',padding:'4px 12px',borderRadius:4,marginTop:6}}>
+                {overallLabel.label}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style={{height:5,background:'var(--sb-gradient-h)'}} />
+
+      <div ref={summaryRef} style={{maxWidth:800,margin:'0 auto',padding:'32px 24px 0'}}>
+
+        {/* Radar — full width */}
+        <div className="radar-container" style={{background:'white',borderRadius:16,padding:'28px 24px',boxShadow:'var(--shadow-md)',marginBottom:24,display:'flex',flexDirection:'column',alignItems:'center'}}>
+          <div style={{fontFamily:'var(--font-display)',fontSize:17,letterSpacing:'0.08em',textTransform:'uppercase',color:'var(--sb-purple)',marginBottom:16,alignSelf:'flex-start'}}>
+            STRATEGIEPROFIEL
+          </div>
+          <RadarChart scores={scores} size={300} />
+        </div>
+
+        {/* Score cards — full width, stacked */}
+        <div className="score-cards" style={{display:'flex',flexDirection:'column',gap:10,marginBottom:24}}>
+          {scores.map(s => {
+            const lbl = getScoreLabel(s.pct);
+            return (
+              <div key={s.id} style={{background:'white',borderRadius:10,padding:'14px 20px',boxShadow:'0 2px 8px rgba(61,40,130,0.07)',display:'flex',alignItems:'center',gap:16}}>
+                <div style={{width:52,height:52,flexShrink:0,borderRadius:10,background:s.color,display:'flex',alignItems:'center',justifyContent:'center',fontFamily:'var(--font-display)',fontSize:20,color:'white'}}>
+                  {s.pct}%
+                </div>
+                <div style={{flex:1,minWidth:0}}>
+                  <div style={{fontFamily:'var(--font-body)',fontSize:14,fontWeight:700,color:'var(--sb-black)',marginBottom:6}}>
+                    {s.title}
+                  </div>
+                  <div style={{height:6,background:'#F0EDF8',borderRadius:3,overflow:'hidden'}}>
+                    <div style={{width:`${s.pct}%`,height:'100%',background:s.color,borderRadius:3,transition:'width 1s ease'}} />
+                  </div>
+                </div>
+                <div style={{flexShrink:0,fontFamily:'var(--font-body)',fontSize:12,fontWeight:700,color:lbl.color,letterSpacing:'0.05em',textTransform:'uppercase',whiteSpace:'nowrap',minWidth:80,textAlign:'right'}}>
+                  {lbl.label}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+      </div>{/* einde summaryRef */}
+
+      <div style={{maxWidth:800,margin:'0 auto',padding:'0 24px'}}>
+
+        {/* Interpretatie */}
+        <div className="interpretatie-block" style={{background:'white',borderRadius:16,padding:'28px 32px',boxShadow:'var(--shadow-md)',marginBottom:24}}>
+          <div style={{fontFamily:'var(--font-display)',fontSize:19,letterSpacing:'0.08em',textTransform:'uppercase',color:'var(--sb-purple)',marginBottom:20}}>
+            INTERPRETATIE
+          </div>
+          <div style={{display:'flex',flexDirection:'column',gap:14}}>
+            {scores.map(s => {
+              const lbl = getScoreLabel(s.pct);
+              const fb = FEEDBACK_MAP[s.id] || {};
+              const text = s.pct >= 60 ? fb.high : s.pct >= 35 ? fb.mid : fb.low;
+              const verbeterpunten = getVerbeterpunten(s.id, answers);
+              return (
+                <div key={s.id} style={{padding:'16px 18px',background:s.pct<40?'#FFF5F5':s.pct>=60?'#F5FBF5':'#FFFBF0',borderRadius:8,borderLeft:`4px solid ${lbl.color}`}}>
+                  <div style={{display:'flex',gap:14,marginBottom:verbeterpunten.length>0?12:0}}>
+                    <div style={{flexShrink:0,minWidth:130}}>
+                      <div style={{fontFamily:'var(--font-body)',fontSize:13,fontWeight:700,color:'var(--sb-black)'}}>{s.title}</div>
+                      <div style={{fontFamily:'var(--font-body)',fontSize:11,fontWeight:700,color:lbl.color,letterSpacing:'0.07em',textTransform:'uppercase',marginTop:2}}>
+                        {s.pct}% — {lbl.label}
+                      </div>
+                    </div>
+                    <div style={{fontFamily:'var(--font-body)',fontSize:13,lineHeight:1.6,color:'var(--sb-black)'}}>{text}</div>
+                  </div>
+                  {verbeterpunten.length>0 && (
+                    <div style={{borderTop:`1px solid ${s.pct<40?'rgba(197,35,57,0.12)':s.pct>=60?'rgba(46,125,50,0.12)':'rgba(247,148,29,0.15)'}`,paddingTop:10}}>
+                      <div style={{fontFamily:'var(--font-body)',fontSize:11,fontWeight:700,letterSpacing:'0.08em',textTransform:'uppercase',color:lbl.color,marginBottom:7}}>
+                        Verbeterpunten
+                      </div>
+                      <ul style={{margin:0,paddingLeft:16,display:'flex',flexDirection:'column',gap:5}}>
+                        {verbeterpunten.map((tip,i) => (
+                          <li key={i} style={{fontFamily:'var(--font-body)',fontSize:12,lineHeight:1.55,color:'var(--sb-black)'}}>{tip}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div style={{background:'var(--sb-purple)',borderRadius:16,padding:'28px 32px',position:'relative',overflow:'hidden'}}>
+          <img src="assets/speed-lines.png" alt="" aria-hidden="true" style={{position:'absolute',right:0,top:0,height:'100%',opacity:0.1,pointerEvents:'none'}} />
+          <div style={{position:'relative',zIndex:1}}>
+            <div style={{fontFamily:'var(--font-display)',fontSize:24,color:'white',textTransform:'uppercase',letterSpacing:'0.06em',marginBottom:8}}>
+              KLAAR VOOR DE VOLGENDE STAP?
+            </div>
+            <p style={{fontFamily:'var(--font-body)',fontSize:15,color:'rgba(255,255,255,0.85)',lineHeight:1.7,marginBottom:22,maxWidth:520}}>
+              Op basis van jouw scan zien wij drie concrete groeikansen voor jouw bedrijf. Wil je die samen doorspreken? Plan hier een gratis kennismaking.
+            </p>
+            <button
+              onClick={() => window.Cal?.ns?.kennismakingsgesprek?.("modal", { calLink: "ian-meinoud/kennismakingsgesprek", config: { layout: "month_view" } })}
+              style={{display:"inline-block",padding:"13px 30px",background:"linear-gradient(90deg,#F5C23A,#F7941D)",borderRadius:8,color:"white",fontFamily:"var(--font-display)",fontSize:19,letterSpacing:"0.08em",textDecoration:"none",transition:"opacity 0.15s",border:"none",cursor:"pointer"}}
+              onMouseEnter={e => e.currentTarget.style.opacity="0.9"}
+              onMouseLeave={e => e.currentTarget.style.opacity="1"}
+            >
+              PLAN GRATIS KENNISMAKING
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom actions: alleen Download PDF en Plan gesprek */}
+      <div className="no-print" style={{position:'fixed',bottom:0,left:0,right:0,background:'white',borderTop:'1px solid #E8E5F0',padding:'14px 24px',paddingBottom:'calc(14px + env(safe-area-inset-bottom))',display:'flex',justifyContent:'center',gap:12,flexWrap:'wrap',zIndex:20,boxShadow:'0 -4px 16px rgba(61,40,130,0.08)'}}>
+        <button onClick={onReset} style={{padding:'10px 20px',background:'transparent',border:'2px solid #E0DDF0',borderRadius:8,color:'var(--sb-mid)',fontFamily:'var(--font-body)',fontSize:13,fontWeight:700,cursor:'pointer'}}>
+          ← Opnieuw
+        </button>
+        <button
+          onClick={handlePrint}
+          style={{padding:'10px 26px',background:'var(--sb-purple)',border:'none',borderRadius:8,color:'white',fontFamily:'var(--font-display)',fontSize:17,letterSpacing:'0.05em',cursor:'pointer',display:'flex',alignItems:'center',gap:7,transition:'opacity 0.15s'}}
+          onMouseEnter={e => e.currentTarget.style.opacity='0.85'}
+          onMouseLeave={e => e.currentTarget.style.opacity='1'}
+        >
+          ↓ DOWNLOAD PDF
+        </button>
+        <button
+          onClick={() => window.Cal?.ns?.kennismakingsgesprek?.('modal', { calLink: 'ian-meinoud/kennismakingsgesprek', config: { layout: 'month_view' } })}
+          style={{padding:'10px 26px',background:'var(--sb-orange)',border:'none',borderRadius:8,color:'white',fontFamily:'var(--font-display)',fontSize:17,letterSpacing:'0.05em',cursor:'pointer',display:'flex',alignItems:'center',gap:7,transition:'opacity 0.15s'}}
+          onMouseEnter={e => e.currentTarget.style.opacity='0.85'}
+          onMouseLeave={e => e.currentTarget.style.opacity='1'}
+        >
+          📅 PLAN GRATIS KENNISMAKING
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ─── APP ─────────────────────────────────────────────────────────────────────
+
+function App() {
+  const [step, setStep] = useState('intro');
+  const [sectionIndex, setSectionIndex] = useState(0);
+  const [answers, setAnswers] = useState({});
+  const [bedrijf, setBedrijf] = useState({ naam:'', kvk:'', email:'' });
+  useEffect(() => { window.scrollTo({ top:0, behavior:'smooth' }); }, [step, sectionIndex]);
+
+  const handleAnswer = useCallback((qid, val) => setAnswers(prev => ({...prev,[qid]:val})), []);
+
+  const [sbiInfo, setSbiInfo] = useState(null);
+  const handleStart = useCallback((sbi) => {
+    if (sbi) setSbiInfo(sbi);
+    setSectionIndex(0);
+    setStep('section');
+  }, []);
+
+  const handleNext = useCallback(() => {
+    if (sectionIndex < SECTIONS.length-1) { setStep('section'); setSectionIndex(i => i+1); }
+    else setStep('results');
+  }, [sectionIndex]);
+
+  const handleBack = useCallback(() => {
+    if (sectionIndex === 0) setStep('intro');
+    else setSectionIndex(i => i-1);
+  }, [sectionIndex]);
+
+  const handleReset = useCallback(() => {
+    setAnswers({}); setBedrijf({naam:'',kvk:'',email:''}); setSbiInfo(null); setSectionIndex(0); setStep('intro');
+  }, []);
+
+  if (step === 'intro') return <IntroScreen onStart={handleStart} bedrijf={bedrijf} setBedrijf={setBedrijf} key="intro" />;
+
+  if (step === 'section') {
+    const section = SECTIONS[sectionIndex];
+    if (!section) return null;
+    return <QuestionScreen section={section} sectionIndex={sectionIndex} totalSections={SECTIONS.length} answers={answers} onAnswer={handleAnswer} onNext={handleNext} onBack={handleBack} />;
+  }
+
+  if (step === 'results') {
+    return <ResultsScreen scores={computeScores(answers)} bedrijf={bedrijf} answers={answers} sbiInfo={sbiInfo} onReset={handleReset} />;
+  }
+
+  return null;
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
+</script>
+</body>
+</html>
