@@ -1,0 +1,235 @@
+{
+  "id": "ogsm",
+  "slug": "ogsm",
+  "tag": "Strategie",
+  "date": "Juni 2026",
+  "dateISO": "2026-06-01",
+  "readingTime": "7 min leestijd",
+  "seo": {
+    "title": "OGSM uitgelegd: wat het is, voordelen en hoe je het gebruikt | Strategieboost",
+    "description": "OGSM zet jouw strategie op één A4. Leer wat het model inhoudt, wat de voordelen zijn, waar je op moet letten en hoe OGSM zich verhoudt tot OKR, SWOT en de Balanced Scorecard.",
+    "canonical": "https://www.strategieboost.nl/blog.html#ogsm",
+    "ogTitle": "OGSM: zo werkt strategie die klopt",
+    "ogDescription": "Één A4 met je volledige strategie. OGSM verbindt ambitie aan actie en geeft iedereen in je bedrijf dezelfde richting.",
+    "ogImage": "https://www.strategieboost.nl/og-blog-ogsm.jpg",
+    "keywords": [
+      "OGSM",
+      "OGSM model",
+      "strategie MKB",
+      "strategisch plan",
+      "OGSM uitgelegd",
+      "OGSM voordelen",
+      "strategie op één pagina",
+      "Strategieboost",
+      "OKR vs OGSM",
+      "strategietool"
+    ],
+    "jsonLd": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "OGSM: zo werkt strategie die klopt",
+      "description": "OGSM zet jouw strategie op één A4. Leer wat het model inhoudt, wat de voordelen zijn, waar je op moet letten en hoe OGSM zich verhoudt tot OKR, SWOT en de Balanced Scorecard.",
+      "datePublished": "2026-06-01",
+      "dateModified": "2026-06-01",
+      "author": {
+        "@type": "Organization",
+        "name": "Strategieboost",
+        "url": "https://www.strategieboost.nl"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Strategieboost",
+        "url": "https://www.strategieboost.nl",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.strategieboost.nl/logo-horizontal.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.strategieboost.nl/blog.html#ogsm"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "OGSM"
+        },
+        {
+          "@type": "Thing",
+          "name": "Strategisch management"
+        },
+        {
+          "@type": "Thing",
+          "name": "MKB strategie"
+        }
+      ],
+      "keywords": "OGSM, strategie, MKB, strategisch plan, OKR, Balanced Scorecard, SWOT",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".article-lead",
+          ".article-body h2",
+          ".highlight-box"
+        ]
+      }
+    }
+  },
+  "hero": {
+    "title": "OGSM: zo werkt strategie die klopt",
+    "lead": "Gebruik 1 A4 voor je volledige strategie. Niets minder en zeker niets meer. OGSM verbindt ambitie aan actie en geeft iedereen in je bedrijf dezelfde richting.",
+    "tag": "Strategie",
+    "date": "Juni 2026",
+    "readingTime": "7 min leestijd"
+  },
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Je barst van de ideeën. Je ziet kansen, voelt de groeipotentie en weet: er zit meer in. Je team werkt hard, de ambitie is er, en toch loopt het net niet zoals je wil. Het team zou gerichter moeten werken. Effectiever ook en meer als één geheel."
+    },
+    {
+      "type": "paragraph",
+      "text": "Herkenbaar? Dan is OGSM een methode die voor jou het verschil kan maken."
+    },
+    {
+      "type": "heading",
+      "text": "Wat is OGSM?"
+    },
+    {
+      "type": "paragraph",
+      "text": "OGSM staat voor <strong>Objective, Goals, Strategies en Measures</strong>. Het is een strategisch raamwerk dat je volledige strategie samenperst tot één overzichtelijke pagina. Niet als versimpeling, maar als scherpstelling. Alles wat ertoe doet staat erin. Alles wat er niet in past, hoort er ook niet in."
+    },
+    {
+      "type": "paragraph",
+      "text": "Het model is in de jaren zestig ontwikkeld door Procter &amp; Gamble en sindsdien breed omarmd door ondernemers en managementteams wereldwijd. De kracht zit niet in de complexiteit, maar juist in het tegendeel: heldere keuzes op één pagina."
+    },
+    {
+      "type": "ogsm-model"
+    },
+    {
+      "type": "paragraph",
+      "text": "Het resultaat is een document van 1 A4 dat iedereen in je organisatie begrijpt. Van directeur tot uitvoerend medewerker. Dat maakt OGSM niet alleen een planningsinstrument, maar ook een communicatiemiddel."
+    },
+    {
+      "type": "heading",
+      "text": "Wat zijn de voordelen van OGSM?"
+    },
+    {
+      "type": "paragraph",
+      "text": "<strong>Meer focus.</strong> OGSM begint bij je Objective: wat wil je echt bereiken? Niet \"groeien\", maar \"binnen drie jaar marktleider zijn in dienstverlening aan groeibedrijven in de regio\". Die concreetheid dwingt je om keuzes te maken. En kiezen betekent ook: nee zeggen. Dat brengt rust, in je hoofd en in je team."
+    },
+    {
+      "type": "paragraph",
+      "text": "<strong>Strategie wordt uitvoerbaar.</strong> Mooie woorden op posters werken niet. OGSM vertaalt je ambitie stap voor stap naar concrete acties. Je koppelt je grote doel aan meetbare subdoelen, duidelijke aanpakken en heldere verantwoordelijkheden. Iedereen weet wie wat doet, waarom en wanneer."
+    },
+    {
+      "type": "paragraph",
+      "text": "<strong>Meer betrokkenheid.</strong> Een goed OGSM wordt niet in de directiekamer bedacht en daarna \"uitgerold\". Het wordt samen met je team gemaakt, in gewone taal. Dat doet iets: mensen begrijpen waar ze naartoe werken en zien hoe ze daaraan bijdragen. Dat geeft eigenaarschap. En eigenaarschap geeft energie."
+    },
+    {
+      "type": "paragraph",
+      "text": "<strong>Minder verspilling.</strong> Hoeveel uur gaan er op aan vergaderingen, projecten en initiatieven die nergens toe leiden? Met OGSM is de vraag simpel: past dit binnen onze strategie? Past het niet, dan doen we het niet. Dat maakt OGSM waarschijnlijk je beste bezuiniging ooit."
+    },
+    {
+      "type": "paragraph",
+      "text": "<strong>Voortgang zichtbaar.</strong> Omdat je werkt met heldere doelen en meetpunten, zie je precies waar je staat. Wat goed gaat en wat achterblijft. Dat maakt bijsturen makkelijk. En het maakt ook successen zichtbaar, groot en klein. Niets motiveert meer dan het gevoel dat je dichterbij komt."
+    },
+    {
+      "type": "heading",
+      "text": "Waar moet je op letten?"
+    },
+    {
+      "type": "warning",
+      "label": "Let op",
+      "text": "OGSM is een krachtig instrument, maar geen toverformule. Hieronder de meest voorkomende valkuilen."
+    },
+    {
+      "type": "paragraph",
+      "text": "<strong>Te vaag blijven.</strong> Het grootste gevaar is een Objective die klinkt als een missie maar niets zegt: \"de beste zijn in ons vakgebied\" of \"duurzame waarde creëren\". Dat is geen richting, dat is ruis. Een goede Objective is scherp, herkenbaar en onderscheidend."
+    },
+    {
+      "type": "paragraph",
+      "text": "<strong>Doelen zonder eigenaar.</strong> Goals en Measures zonder naam erbij verdwijnen in de la. Koppel elk onderdeel aan een persoon die verantwoordelijk is voor de opvolging."
+    },
+    {
+      "type": "paragraph",
+      "text": "<strong>Eén keer per jaar ophalen.</strong> OGSM is een levend document. Bespreek het minimaal elk kwartaal. Wat is er veranderd? Welke aannames kloppen niet meer? Wat moet worden bijgesteld? Een OGSM die in een la verdwijnt, werkt niet."
+    },
+    {
+      "type": "paragraph",
+      "text": "<strong>Te complex maken.</strong> Meer is hier niet beter. Houd je Objective kort, je Goals beperkt tot drie à vijf stuks en je Strategies helder. Als je een dik document nodig hebt om het uit te leggen, is het geen OGSM meer."
+    },
+    {
+      "type": "paragraph",
+      "text": "<strong>Zonder draagvlak invoeren.</strong> OGSM werkt het beste als je team erbij betrokken is geweest. Dat vraagt tijd en goede gespreksleiding, maar de investering verdient zich dubbel en dwars terug in commitment en uitvoering."
+    },
+    {
+      "type": "heading",
+      "text": "Hoe verhoudt OGSM zich tot andere strategietools?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Er zijn veel strategietools in omloop. OGSM is er één van. Hieronder een vergelijking met de methodes die je het vaakst tegenkomt als MKB-ondernemer."
+    },
+    {
+      "type": "comparison-table",
+      "headers": [
+        "Methode",
+        "Sterk punt",
+        "Minder geschikt voor"
+      ],
+      "rows": [
+        [
+          "OGSM",
+          "Alles op één pagina, verbindt ambitie aan actie, makkelijk te delen met het team",
+          "Diepgaande marktanalyse of financiële modellering"
+        ],
+        [
+          "Balanced Scorecard",
+          "Kijkt naar meerdere perspectieven (financieel, klant, processen, mensen)",
+          "Kan complex en bureaucratisch worden voor kleinere organisaties"
+        ],
+        [
+          "OKR (Objectives & Key Results)",
+          "Geschikt voor snelle teams en iteratieve werkomgevingen",
+          "Vraagt veel discipline en frequente check-ins om te werken"
+        ],
+        [
+          "SWOT-analyse",
+          "Goed startpunt voor situatieschets",
+          "Leidt zelden tot een concreet plan of actie op zichzelf"
+        ],
+        [
+          "Business Model Canvas",
+          "Ideaal voor het ontwerpen of herontwerpen van je businessmodel",
+          "Minder geschikt als vertrekpunt voor jaarlijkse strategieplanning"
+        ]
+      ]
+    },
+    {
+      "type": "highlight",
+      "text": "OGSM is geen vervanging van al deze tools. Gebruik een SWOT of omgevingsanalyse als voorbereiding, en OGSM als de vertaling naar een plan dat je daadwerkelijk uitvoert."
+    },
+    {
+      "type": "paragraph",
+      "text": "Waar OKR's en de Balanced Scorecard goed werken in grotere en meer formele organisaties, is OGSM juist sterk in de context van het MKB. Het is snel te maken, makkelijk bij te houden en direct te begrijpen voor iedereen in de organisatie."
+    },
+    {
+      "type": "heading",
+      "text": "OGSM als mindset"
+    },
+    {
+      "type": "paragraph",
+      "text": "Het mooie van OGSM is niet alleen de structuur. Het is de manier van denken die het losmaakt: eerlijk, gefocust en doelgericht. Geen dikke plannen. Geen wollige taal, maar één helder verhaal, één richting en één team dat samen beweegt."
+    },
+    {
+      "type": "paragraph",
+      "text": "Bij Strategieboost helpen we ondernemers om precies dat te bouwen. Echte strategie op één A4 die werkt, leeft en leidt."
+    }
+  ],
+  "cta": {
+    "heading": "Hoe sterk is jouw strategie nu?",
+    "text": "Doe de gratis Strategiescan en ontdek in 10 minuten waar je staat en wat de volgende stap is.",
+    "buttonText": "Doe de gratis Strategiescan",
+    "buttonUrl": "strategiescan.html"
+  }
+}
