@@ -410,6 +410,8 @@ footer { background: var(--purple); padding: 48px var(--pad) 32px; }
   .voor-wie-item:first-child { border-right: none; border-bottom: 1px solid var(--rule); }
   .dienst { grid-template-columns: 48px 1fr; }
   .hero-photo img { object-position: center 20%; }
+  .hero-title { font-size: clamp(28px, 8vw, 38px); letter-spacing: 0.02em; }
+  .hero-line { display: inline; }
   .footer-logo-img { width: 100%; max-width: 240px; height: auto; margin-top: 0; }
   .footer-bottom { flex-direction: column; align-items: flex-start; gap: 16px; }
   .footer-legal { flex-direction: column; gap: 10px; align-items: flex-start; }
@@ -488,7 +490,7 @@ Cal.ns["kennismakingsgesprek"]("ui", {
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Betere resultaten in minder tijd</div>
-    <h1 class="hero-title"><span class="hero-line">Succesvolle ondernemers geven</span><span class="hero-line">structureel aandacht aan hun strategie</span></h1>
+    <h1 class="hero-title"><span class="hero-line">Succesvolle ondernemers geven</span> <span class="hero-line">structureel aandacht aan hun strategie</span></h1>
     <p class="hero-sub" style="max-width:820px;">Haal meer uit je bedrijf door je strategie iedere week op de agenda te zetten.<br>Werk niet alleen in, maar ook aan je bedrijf.</p>
     <div class="hero-actions">
       <a class="btn-ghost" href="#keuze">Ontdek wat bij jou past ↓</a>
